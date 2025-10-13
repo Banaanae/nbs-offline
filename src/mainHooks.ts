@@ -1,10 +1,10 @@
 import { Offsets } from "./offsets";
 import { PiranhaMessage } from "./piranhamessage";
-import { base, messagingSend, player, stringCtor, } from "./definitions";
+import { base, documentsDirectory, messagingSend, player, stringCtor, } from "./definitions";
 import { Messaging } from "./messaging";
 import { LoginOkMessage } from "./packets/server/LoginOkMessage";
 import { OwnHomeDataMessage } from "./packets/server/OwnHomeDataMessage";
-import { createStringObject, decodeString, strPtr } from "./util";
+import { createStringObject, decodeString, getDocumentsDirectory, strPtr } from "./util";
 import { BattleEndMessage } from "./packets/server/BattleEndMessage";
 import { ByteStream } from "./bytestream";
 import { AskForBattleEndMessage } from "./packets/client/AskForBattleEndMessage";
@@ -106,6 +106,13 @@ export function installHooks() {
             return 0;
         }, "int", ["pointer", "pointer"])
     );
+
+    Interceptor.attach(base.add(Offsets.TutorialThingy),
+        {
+            onLeave(retval) {
+                retval.replace(ptr(-1));
+            },
+        });
 
     /*
     Interceptor.attach(base.add(Offsets.NativeFontFormatString),

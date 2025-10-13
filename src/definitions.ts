@@ -1,6 +1,8 @@
+import { Config, readConfig, tryLoadDefaultConfig } from "./config";
 import { Offsets } from "./offsets";
 import { isAndroid } from "./platform";
 import { Player } from "./player";
+import { getDocumentsDirectory } from "./util";
 
 export let base = NULL;
 
@@ -9,6 +11,9 @@ export const libc = isAndroid ? Process.getModuleByName('libc.so') : Process.get
 export const malloc = new NativeFunction(libc.getExportByName('malloc'), 'pointer', ['uint']);
 
 export let player = new Player();
+export let documentsDirectory: string;
+export let configPath: string;
+export let config: Config;
 
 export let createMessageByType: NativeFunction<NativePointer, [NativePointer, number]>;
 export let operator_new: NativeFunction<NativePointer, [number]>;
@@ -24,6 +29,10 @@ export function load() {
     stringCtor = new NativeFunction(base.add(Offsets.StringConstructor), "pointer", ["pointer", "pointer"]);
     messagingSend = new NativeFunction(base.add(Offsets.MessagingSend), "bool", ["pointer", "pointer"]);
     showFloaterText = new NativeFunction(base.add(Offsets.GUIShowFloaterTextAtDefaultPos), "int", ["pointer", "pointer", "int", "float"]);
+    documentsDirectory = getDocumentsDirectory();
+    configPath = documentsDirectory + "/config.json";
+    config = readConfig();
+    player.applyConfig(config);
 }
 
 export function setBase(ptr: NativePointer) {

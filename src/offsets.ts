@@ -52,7 +52,5 @@ export const Offsets = {
 
     Messaging: isAndroid ? 9 * Process.pointerSize : 72,
 
-    LogicBattleModeClientGetOwnPlayerTeam: isAndroid ? 0x0 : 0x4321e4,
-    BattleEndPopupIsVictory: isAndroid ? 0x0 : 0xf9c30,
-    BattleEndPopupIsDefeat: isAndroid ? 0x0 : 0xf9ca8,
+    TutorialThingy: isAndroid ? 0x0 : 0x2f1cc0
 };

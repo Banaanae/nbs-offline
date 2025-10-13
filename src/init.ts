@@ -15,8 +15,8 @@ for (const brawlerKey in player.ownedBrawlers) {
     setBase(await waitForModule(library));
     console.log("isAndroid", isAndroid);
     console.log(`${library} loaded at: ${base}`);
-    load();
     setImmediate(() => {
+        load();
         installHooks();
     });
 })();

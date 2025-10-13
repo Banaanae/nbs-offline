@@ -1,8 +1,39 @@
+import { Brawler } from "./brawler.js";
 import { base, malloc, stringCtor } from "./definitions.js";
 import { Offsets } from "./offsets.js";
+import { isAndroid } from "./platform.js";
 
 export function getMessageManagerInstance(): NativePointer {
     return base.add(Offsets.MessageManagerInstance).readPointer();
+}
+
+export function getDocumentsDirectory(): string {
+    if (!isAndroid && ObjC.available) {
+        var NSFileManager = ObjC.classes.NSFileManager;
+        var fm = NSFileManager.defaultManager();
+
+        let docsPath = fm.URLsForDirectory_inDomains_(9, 1).objectAtIndex_(0).path().toString();
+        return docsPath;
+    }
+    throw new Error("Android support is not available yet, sorry!");
+}
+
+export function getDefaultConfig(): string {
+    if (!isAndroid) {
+        return getDefaultConfigIOS();
+    }
+    throw new Error("Android support is not available yet, sorry!");
+}
+
+export function getDefaultConfigIOS(): string {
+    var NSBundle = ObjC.classes.NSBundle, NSString = ObjC.classes.NSString, NSData = ObjC.classes.NSData, NSFileManager = ObjC.classes.NSFileManager;
+    var path = NSBundle.mainBundle().bundlePath().toString() + "/config.json";
+    if (!NSFileManager.defaultManager().fileExistsAtPath_(NSString.stringWithString_(path))) {
+        throw new Error("Default config missing");
+    }
+    var data = NSData.dataWithContentsOfFile_(NSString.stringWithString_(path));
+    var str = NSString.alloc().initWithData_encoding_(data, 4);
+    return JSON.parse(str.toString());
 }
 
 export function decodeString(src: NativePointer): string | null {
@@ -79,4 +110,20 @@ export function waitForModule(name: string, intervalMs = 10): Promise<NativePoin
             }
         }, intervalMs);
     });
+}
+
+export function calculateTrophies(brawlerData: Record<number, Brawler>): number {
+    let trophies = 0;
+    for (const [_, brawler] of Object.entries(brawlerData as Record<string, any>)) {
+        trophies += brawler.highestTrophies;
+    }
+    return trophies;
+}
+
+export function calculateHighestTrophies(brawlerData: Record<number, Brawler>): number {
+    let trophies = 0;
+    for (const [_, brawler] of Object.entries(brawlerData as Record<string, any>)) {
+        trophies += brawler.highestTrophies;
+    }
+    return trophies;
 }
