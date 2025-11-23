@@ -15,12 +15,17 @@ export let documentsDirectory: string;
 export let configPath: string;
 export let config: Config;
 
-export let createMessageByType: NativeFunction<NativePointer, [NativePointer, number]>;
-export let operator_new: NativeFunction<NativePointer, [number]>;
-export let messageManagerReceiveMessage: NativeFunction<number, [NativePointerValue, NativePointerValue]>;
-export let stringCtor: NativeFunction<NativePointer, [NativePointer, NativePointer]>;
-export let messagingSend: NativeFunction<number, [NativePointer, NativePointer]>;
-export let showFloaterText: NativeFunction<number, [NativePointer, NativePointer, number, number]>;
+export let createMessageByType: any;
+export let operator_new: any;
+export let messageManagerReceiveMessage: any;
+export let stringCtor: any;
+export let messagingSend: any;
+export let showFloaterText: any;
+export let gameButtonConstructor: any;
+export let getMovieClip: any;
+export let stageAddChild: any;
+export let setText: any;
+export let setXY: any;
 
 export function load() {
     createMessageByType = new NativeFunction(base.add(Offsets.CreateMessageByType), "pointer", ["pointer", "int"]);
@@ -29,6 +34,12 @@ export function load() {
     stringCtor = new NativeFunction(base.add(Offsets.StringConstructor), "pointer", ["pointer", "pointer"]);
     messagingSend = new NativeFunction(base.add(Offsets.MessagingSend), "bool", ["pointer", "pointer"]);
     showFloaterText = new NativeFunction(base.add(Offsets.GUIShowFloaterTextAtDefaultPos), "int", ["pointer", "pointer", "int", "float"]);
+    gameButtonConstructor = new NativeFunction(base.add(Offsets.GameButtonConstructor), "void", ["pointer"]);
+    getMovieClip = new NativeFunction(base.add(Offsets.ResourceManagerGetMovieClip), "pointer", ["pointer", "pointer"]);
+    stageAddChild = new NativeFunction(base.add(Offsets.StageAddChild), "pointer", ["pointer", "pointer"]);
+    setText = new NativeFunction(base.add(Offsets.TextFieldSetText), "int64", ["pointer", "pointer", "bool"]);
+    setXY = new NativeFunction(base.add(Offsets.DisplayObjectSetXY), "pointer", ["pointer", "float", "float"]);
+
     documentsDirectory = getDocumentsDirectory();
     configPath = documentsDirectory + "/config.json";
     config = readConfig();
@@ -39,7 +50,7 @@ export function setBase(ptr: NativePointer) {
     base = ptr;
 }
 
-export const credits = `NBS Offline v1
+export const credits = `NBS Offline v59
 
 Made by Natesworks 
 Discord: dsc.gg/nbsoffline

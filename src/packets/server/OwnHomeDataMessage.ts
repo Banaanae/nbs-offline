@@ -34,7 +34,7 @@ export class OwnHomeDataMessage {
         for (let i = 0; i < 1080; i++)
             stream.writeDataReference({high: 29, low: i});
         stream.writeVint(0);
-        stream.writeVint(0);
+        stream.writeVint(0); // e
         stream.writeVint(player.highestTrophies);
         stream.writeVint(0);
         stream.writeVint(2);
