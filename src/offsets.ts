@@ -32,6 +32,7 @@ export const Offsets = {
   IsProd: isAndroid ? 0x5ecbd0 : 0x32fbf4,
 
   DebuggerError: isAndroid ? 0x813fa0 : 0xc0191c,
+  DebuggerWarning: isAndroid ? 0x813ef8 : 0xc018ec,
   StringTableGetString: isAndroid ? 0x5d4eb8 : 0x31cfc8,
   MoieClipGetTextFieldByName: isAndroid ? 0x7d0ce4 : 0xbc4f04,
   TextFieldSetText: isAndroid ? 0x7ff96c : 0xbef364,
@@ -67,4 +68,7 @@ export const Offsets = {
   LoadingText: 120,
   LoadingPercent: 64,
   GotoAndStopFrameIndex: isAndroid ? 0x0 : 0xbc3ee8,
+
+  // retard
+  PlayerInfoGetStat: isAndroid ? 0x0 : 0x41b92c,
 };

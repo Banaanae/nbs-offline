@@ -2,6 +2,7 @@ import { Offsets } from "./offsets.js";
 import { PiranhaMessage } from "./piranhamessage.js";
 import {
   base,
+  config,
   documentsDirectory,
   messagingSend,
   player,
@@ -30,6 +31,12 @@ export function installHooks() {
   Interceptor.attach(base.add(Offsets.DebuggerError), {
     onEnter(args) {
       console.log("ERROR:", args[0].readCString());
+    },
+  });
+
+  Interceptor.attach(base.add(Offsets.DebuggerWarning), {
+    onEnter(args) {
+      console.log("WARN:", decodeString(args[0]));
     },
   });
 
@@ -156,5 +163,38 @@ export function installHooks() {
   Interceptor.attach(base.add(Offsets.SettingsScreenConstructor), {
     onLeave() {},
   });
-}
 
+  Interceptor.attach(base.add(Offsets.PlayerInfoGetStat), {
+    onEnter(args) {
+      this.id = args[1].toInt32();
+    },
+    onLeave(retval) {
+      switch (this.id) {
+        case 1: // 3v3 wins
+          retval.replace(ptr(config.trioWins));
+          break;
+        case 8: // solo wins
+          retval.replace(ptr(config.soloWins));
+          break;
+        case 11: // duo victories
+          retval.replace(ptr(config.duoWins));
+          break;
+        case 29: // trophies
+          retval.replace(ptr(player.trophies));
+          break;
+        case 4: // highest trophs
+          retval.replace(ptr(player.highestTrophies));
+          break;
+        case 24: // ranked current
+          retval.replace(ptr(config.rankedCurrent));
+          break;
+        case 25: // ranked highest
+          retval.replace(ptr(config.rankedHighest));
+          break;
+        case 20: // fame credits
+          retval.replace(ptr(config.fameCredits));
+          break;
+      }
+    },
+  });
+}

@@ -28,6 +28,10 @@
   "infiniteAmmo": false,
   "infiniteSuper": false,
   "china": false,
+  "rankedCurrent": 0,
+  "rankedHighest": 0,
+  "prestige": 0,
+  "fameCredits": 300000,
   "unlockedBrawlers": {
     "0": {
       "cardID": 0,

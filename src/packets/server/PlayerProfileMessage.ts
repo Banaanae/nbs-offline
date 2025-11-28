@@ -6,30 +6,26 @@ export class PlayerProfileMessage {
   static encode(player: Player): number[] {
     let stream = new ByteStream([]);
 
-    /* ***************************************** */
+    // PlayerProfile::encode
     stream.writeVlong(player.id[0], player.id[1]);
     stream.writeDataReference({ high: 16, low: player.favouriteBrawler });
+    stream.writeDataReference({ high: 0, low: -1 });
 
     const ownedBrawlersCount = Object.keys(player.ownedBrawlers).length;
     stream.writeVint(ownedBrawlersCount);
 
-    for (const [_brawlerID, brawlerData] of Object.entries(
-      player.ownedBrawlers,
-    )) {
-      const brawlerID = Number(_brawlerID);
-      stream.writeDataReference({ high: 16, low: brawlerID });
-      stream.writeDataReference({ high: 0, low: -1 }); // skin
-      stream.writeVint(brawlerData.trophies);
-      stream.writeVint(brawlerData.highestTrophies);
-      stream.writeVint(brawlerData.powerlevel);
-      stream.writeVint(0);
-    }
+    // owned brawlers array doesnt even matter
+    // HeroEntry::encode
+    stream.writeVint(1);
+    stream.writeDataReference({ high: 16, low: 1 });
+    stream.writeDataReference({ high: 0, low: -1 });
+    stream.writeVint(0);
+    stream.writeVint(0);
+    stream.writeVint(1);
+    stream.writeVint(0);
+    stream.writeVint(0);
 
-    stream.writeVint(4);
-    stream.writeDataReference({ high: 20, low: 244444 });
-    stream.writeDataReference({ high: 24, low: 6974 });
-    stream.writeDataReference({ high: 25, low: 1337 });
-    stream.writeDataReference({ high: 27, low: 1488 });
+    stream.writeVint(0); // done with hook in mainHooks.ts idk why it doesnt work
 
     /* ***************************************** */
     stream.writeString(player.name);
@@ -53,7 +49,7 @@ export class PlayerProfileMessage {
     stream.writeBoolean(false);
 
     stream.writeDataReference({ high: 25, low: 0 });
-    stream.writeVint(1);
+    stream.writeVint(0);
 
     return stream.payload;
   }
