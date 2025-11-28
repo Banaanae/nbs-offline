@@ -1,4 +1,5 @@
 {
+  "name": "Natesworks",
   "coins": 0,
   "gems": 0,
   "starpoints": 0,
@@ -19,18 +20,14 @@
   "duoVictories": 0,
   "mostChallengeWins": 0,
   "lobbyinfo": "",
-  "enableBrawlPass": false,
   "enableShop": false,
+  "enableBrawlPass": false,
   "enableClubs": false,
   "brawlPassPremium": true,
   "disableBots": false,
   "infiniteAmmo": false,
   "infiniteSuper": false,
   "china": false,
-  "name": "Natesworks",
-  "artTest": false,
-  "customLoadingScreen": true,
-  "debugMenu": true,
   "unlockedBrawlers": {
     "0": {
       "cardID": 0,
@@ -51,7 +48,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "1": {
       "cardID": 4,
@@ -76,7 +74,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "2": {
       "cardID": 8,
@@ -97,7 +96,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "3": {
       "cardID": 12,
@@ -117,7 +117,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "4": {
       "cardID": 16,
@@ -136,7 +137,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "5": {
       "cardID": 20,
@@ -155,7 +157,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "6": {
       "cardID": 24,
@@ -175,7 +178,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "7": {
       "cardID": 28,
@@ -194,7 +198,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "8": {
       "cardID": 32,
@@ -213,7 +218,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "9": {
       "cardID": 36,
@@ -237,7 +243,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "10": {
       "cardID": 40,
@@ -261,7 +268,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "11": {
       "cardID": 44,
@@ -281,7 +289,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "12": {
       "cardID": 48,
@@ -300,7 +309,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "13": {
       "cardID": 52,
@@ -317,7 +327,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "14": {
       "cardID": 56,
@@ -338,7 +349,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "15": {
       "cardID": 60,
@@ -356,7 +368,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "16": {
       "cardID": 64,
@@ -371,7 +384,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "17": {
       "cardID": 68,
@@ -388,7 +402,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "18": {
       "cardID": 72,
@@ -406,7 +421,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "19": {
       "cardID": 95,
@@ -423,7 +439,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "20": {
       "cardID": 100,
@@ -439,7 +456,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "21": {
       "cardID": 105,
@@ -455,7 +473,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "22": {
       "cardID": 110,
@@ -471,7 +490,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "23": {
       "cardID": 115,
@@ -488,7 +508,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "24": {
       "cardID": 120,
@@ -505,7 +526,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "25": {
       "cardID": 125,
@@ -525,7 +547,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "26": {
       "cardID": 130,
@@ -543,7 +566,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "27": {
       "cardID": 177,
@@ -560,7 +584,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "28": {
       "cardID": 182,
@@ -577,7 +602,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "29": {
       "cardID": 188,
@@ -595,7 +621,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "30": {
       "cardID": 194,
@@ -611,7 +638,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "31": {
       "cardID": 200,
@@ -628,7 +656,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "32": {
       "cardID": 206,
@@ -645,7 +674,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "34": {
       "cardID": 218,
@@ -663,7 +693,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "35": {
       "cardID": 224,
@@ -679,7 +710,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "36": {
       "cardID": 230,
@@ -694,7 +726,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "37": {
       "cardID": 236,
@@ -712,7 +745,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "38": {
       "cardID": 279,
@@ -728,7 +762,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "39": {
       "cardID": 296,
@@ -744,7 +779,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "40": {
       "cardID": 303,
@@ -758,7 +794,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "41": {
       "cardID": 320,
@@ -774,7 +811,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "42": {
       "cardID": 327,
@@ -787,7 +825,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "43": {
       "cardID": 334,
@@ -802,7 +841,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "44": {
       "cardID": 341,
@@ -818,7 +858,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "45": {
       "cardID": 358,
@@ -834,7 +875,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "46": {
       "cardID": 365,
@@ -850,7 +892,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "47": {
       "cardID": 372,
@@ -863,7 +906,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "48": {
       "cardID": 379,
@@ -877,7 +921,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "49": {
       "cardID": 386,
@@ -892,7 +937,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "50": {
       "cardID": 393,
@@ -904,7 +950,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "51": {
       "cardID": 410,
@@ -918,7 +965,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "52": {
       "cardID": 417,
@@ -933,7 +981,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "53": {
       "cardID": 427,
@@ -948,7 +997,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "54": {
       "cardID": 434,
@@ -963,7 +1013,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "56": {
       "cardID": 448,
@@ -977,7 +1028,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "57": {
       "cardID": 466,
@@ -991,7 +1043,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "58": {
       "cardID": 474,
@@ -1005,7 +1058,8 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "59": {
       "cardID": 491,
@@ -1017,307 +1071,544 @@
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "60": {
       "cardID": 499,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "61": {
       "cardID": 507,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "62": {
       "cardID": 515,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "63": {
       "cardID": 523,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "64": {
       "cardID": 531,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "65": {
       "cardID": 539,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "66": {
       "cardID": 547,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "67": {
       "cardID": 557,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "68": {
       "cardID": 565,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "69": {
       "cardID": 573,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "70": {
       "cardID": 581,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "71": {
       "cardID": 589,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "72": {
       "cardID": 597,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "73": {
       "cardID": 605,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "74": {
       "cardID": 619,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "75": {
       "cardID": 633,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "76": {
       "cardID": 642,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "77": {
       "cardID": 655,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "78": {
       "cardID": 663,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "79": {
       "cardID": 671,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "80": {
       "cardID": 730,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "81": {
       "cardID": 748,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "82": {
       "cardID": 760,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "83": {
       "cardID": 768,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "84": {
       "cardID": 800,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "85": {
       "cardID": 811,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "86": {
       "cardID": 828,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "87": {
       "cardID": 844,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "89": {
       "cardID": 862,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     },
     "90": {
       "cardID": 871,
       "skins": [],
-      "trophies": 1000,
-      "highestTrophies": 1000,
+      "trophies": 0,
+      "highestTrophies": 0,
       "powerlevel": 11,
       "powerpoints": 0,
       "state": 2,
-      "masteryPoints": 0
+      "masteryPoints": 0,
+      "masteryCollected": 0
     }
-  }
+  },
+  "events": [
+    {
+      "slot": 2,
+      "timeToEnd": 1738226512052.918,
+      "tokens": 10,
+      "mapID": 774,
+      "claimedTokens": []
+    },
+    {
+      "slot": 1,
+      "timeToEnd": 1738269712064.6296,
+      "tokens": 10,
+      "mapID": 810,
+      "claimedTokens": []
+    },
+    {
+      "slot": 3,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 542,
+      "claimedTokens": []
+    },
+    {
+      "slot": 4,
+      "timeToEnd": 1738269712075.367,
+      "tokens": 10,
+      "mapID": 761,
+      "claimedTokens": []
+    },
+    {
+      "slot": 5,
+      "timeToEnd": 1738269712086.1027,
+      "tokens": 10,
+      "mapID": 903,
+      "claimedTokens": []
+    },
+    {
+      "slot": 6,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 642,
+      "claimedTokens": []
+    },
+    {
+      "slot": 7,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 21,
+      "claimedTokens": []
+    },
+    {
+      "slot": 10,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 177,
+      "claimedTokens": []
+    },
+    {
+      "slot": 9,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 752,
+      "claimedTokens": []
+    },
+    {
+      "slot": 34,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 2,
+      "claimedTokens": []
+    },
+    {
+      "slot": 12,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 809,
+      "claimedTokens": []
+    },
+    {
+      "slot": 13,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 817,
+      "claimedTokens": []
+    },
+    {
+      "slot": 20,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 636,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
+          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
+        }
+      }
+    },
+    {
+      "slot": 21,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 22,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
+          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
+        }
+      }
+    },
+    {
+      "slot": 22,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 19,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
+          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
+        }
+      }
+    },
+    {
+      "slot": 23,
+      "timeToEnd": 1727536357345.6142,
+      "tokens": 10,
+      "mapID": 548,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
+          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
+        }
+      }
+    },
+    {
+      "slot": 36,
+      "timeToEnd": 2427536357345.6143,
+      "tokens": 10,
+      "mapID": 548,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(1a1d6744f7dfb7bcfa54e3876c944b1da9d075db",
+          "scFile": "/3f8dc547-1aed-4d85-81b0-32ead16f7474_collab_toystory.sc"
+        }
+      }
+    }
+  ]
 }
