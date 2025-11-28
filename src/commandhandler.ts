@@ -1,4 +1,5 @@
 import { ByteStream } from "./bytestream.js";
+import { LogicSelectFavouriteHeroCommand } from "./commands/client/LogicSelectFavouriteHeroCommand.js";
 import { LogicSetPlayerNameColorCommand } from "./commands/client/LogicSetPlayerNameColorCommand.js";
 import { LogicSetPlayerThumbnailCommand } from "./commands/client/LogicSetPlayerThumbnailCommand.js";
 
@@ -10,6 +11,9 @@ export class CommandHandler {
         break;
       case 505:
         stream = LogicSetPlayerThumbnailCommand.decodeAndExecute(stream);
+        break;
+      case 570:
+        stream = LogicSelectFavouriteHeroCommand.decodeAndExecute(stream);
         break;
       default:
         console.log("Unhandled command of type:", id);

@@ -38,6 +38,7 @@ export class Config {
   rankedHighest: number = 0;
   prestige: number = 0;
   fameCredits: number = 0;
+  favouriteBrawler: number = 0;
 }
 export function tryLoadDefaultConfig() {
   try {
@@ -105,6 +106,7 @@ export function readConfig() {
   config.rankedHighest = json.rankedHighest;
   config.prestige = json.prestige;
   config.fameCredits = json.fameCredits;
+  config.favouriteBrawler = json.favouriteBrawler;
 
   return config;
 }
@@ -160,6 +162,7 @@ export function writeConfig(config: Config) {
     data.rankedHighest = config.rankedHighest;
     data.prestige = config.prestige;
     data.fameCredits = config.fameCredits;
+    data.favouriteBrawler = config.favouriteBrawler;
   }
 
   const remove = new NativeFunction(libc.getExportByName("remove"), "int", [
