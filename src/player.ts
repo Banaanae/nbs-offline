@@ -6,7 +6,6 @@ export class Player {
   name = "Natesworks";
   token = "pXrvhSEPBUQo70jmePrPVQmHJHUQMrpWav82U1kH";
   id = [0, 1];
-  registered = true;
   namecolor = 9;
   thumbnail = 0;
   coins = 0;
@@ -59,4 +58,3 @@ export class Player {
     this.favouriteBrawler = cfg.favouriteBrawler;
   }
 }
-

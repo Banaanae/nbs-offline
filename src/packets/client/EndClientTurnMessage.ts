@@ -6,8 +6,8 @@ export class EndClientTurnMessage {
   // im lazy
   static decodeAndExecute(player: Player, stream: ByteStream) {
     stream.readBoolean();
-    stream.readVint();
-    stream.readVint();
+    let tick = stream.readVint();
+    let cheksum = stream.readVint();
     let count = stream.readVint();
     console.log("Command amount:", count);
     for (let i = 0; i < count; i++) {

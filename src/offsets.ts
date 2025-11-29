@@ -72,5 +72,6 @@ export const Offsets = {
   // retard
   PlayerInfoGetStat: isAndroid ? 0x0 : 0x41b92c,
 
-  BattleScreenShouldShowCHatButton: isAndroid ? 0x0 : 0x227bfc,
+  BattleScreenShouldShowChatButton: isAndroid ? 0x0 : 0x227bfc,
+  CombatHUDIsLeavePromptAllowed: isAndroid ? 0x0 : 0x7e22c,
 };

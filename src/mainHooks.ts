@@ -201,9 +201,15 @@ export function installHooks() {
     },
   });
 
-  Interceptor.attach(base.add(Offsets.BattleScreenShouldShowCHatButton), {
+  Interceptor.attach(base.add(Offsets.BattleScreenShouldShowChatButton), {
     onLeave(retval) {
       retval.replace(ptr(1)); // todo cfg opt
+    },
+  });
+
+  Interceptor.attach(base.add(Offsets.CombatHUDIsLeavePromptAllowed), {
+    onLeave(retval) {
+      retval.replace(ptr(1));
     },
   });
 }

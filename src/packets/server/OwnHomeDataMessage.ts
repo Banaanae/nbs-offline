@@ -410,7 +410,7 @@ export class OwnHomeDataMessage {
     stream.writeVlong(player.id[0], player.id[1]);
     stream.writeVlong(player.id[0], player.id[1]);
     stream.writeString(player.name);
-    stream.writeBoolean(player.registered);
+    stream.writeBoolean(config.registered);
     stream.writeInt(-1);
 
     stream.writeVint(23);

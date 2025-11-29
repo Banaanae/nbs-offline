@@ -19,7 +19,7 @@ export class ChangeAvatarNameMessage {
       LogicChangeAvatarNameCommand.encode(player),
     );
     config.name = player.name;
+    config.registered = true;
     writeConfig(config);
   }
 }
-
