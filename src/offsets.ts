@@ -63,11 +63,13 @@ export const Offsets = {
 
   MessageManagerSendKeepAliveMessage: isAndroid ? 0x0 : 0x1f6f34,
 
-  // for better loading/updater
+  // for better loading
   LoadingScreenUpdateLoadingProgress: isAndroid ? 0x0 : 0x31b160,
   LoadingText: 120,
   LoadingPercent: 64,
   GotoAndStopFrameIndex: isAndroid ? 0x0 : 0xbc3ee8,
+  LoadingAlpha: 56,
+  SetTextAndScaleIfNecessary: isAndroid ? 0x0 : 0x326e7c,
 
   // retard
   PlayerInfoGetStat: isAndroid ? 0x0 : 0x41b92c,

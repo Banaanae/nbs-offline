@@ -7,6 +7,7 @@ import {
   messagingSend,
   player,
   setText,
+  setTextAndScaleIfNecessary,
   stringCtor,
 } from "./definitions.js";
 import { Messaging } from "./messaging.js";
@@ -27,7 +28,7 @@ import { ChangeAvatarNameMessage } from "./packets/client/ChangeAvatarNameMessag
 import { EndClientTurnMessage } from "./packets/client/EndClientTurnMessage.js";
 import { writeConfig } from "./config.js";
 
-let xd = 0;
+let progress: number;
 
 export function installHooks() {
   Interceptor.attach(base.add(Offsets.DebuggerError), {
@@ -218,4 +219,30 @@ export function installHooks() {
       retval.replace(ptr(1));
     },
   });
+
+  if (config.customLoadingScreen) {
+    Interceptor.attach(base.add(Offsets.LoadingScreenUpdateLoadingProgress), {
+      onEnter(args) {
+        this.textfield = args[0].add(Offsets.LoadingText).readPointer();
+        this.goToAndStopFrameIndexHook = Interceptor.attach(
+          base.add(Offsets.GotoAndStopFrameIndex),
+          {
+            onEnter(args) {
+              progress = args[1].toInt32();
+            },
+          },
+        );
+      },
+      onLeave(retval) {
+        let text = `[${progress}%] Loading game...`;
+        setTextAndScaleIfNecessary(
+          this.textfield,
+          createStringObject(text),
+          0,
+          0,
+        );
+        this.goToAndStopFrameIndexHook.detach();
+      },
+    });
+  }
 }
