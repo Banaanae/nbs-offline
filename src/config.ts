@@ -48,7 +48,7 @@ export function tryLoadDefaultConfig() {
     return;
   } catch (e) {}
   const defaultConfig = getDefaultConfig();
-  File.writeAllText(configPath, JSON.stringify(defaultConfig, null, 2));
+  File.writeAllText(configPath, defaultConfig);
 }
 
 export function readConfig() {

@@ -1,8 +1,8 @@
 import { Config, readConfig, tryLoadDefaultConfig } from "./config.js";
-import { Offsets } from "./offsets.js";
+import { getOffsetsFromJSON, Offsets } from "./offsets.js";
 import { isAndroid } from "./platform.js";
 import { Player } from "./player.js";
-import { getDocumentsDirectory } from "./util.js";
+import { getDocumentsDirectory, getPackageName } from "./util.js";
 
 export let base = NULL;
 
@@ -20,6 +20,7 @@ export let player = new Player();
 export let documentsDirectory: string;
 export let configPath: string;
 export let config: Config;
+export let pkgName: string;
 
 export let createMessageByType: any;
 export let operator_new: any;
@@ -35,6 +36,10 @@ export let setXY: any;
 export let setTextAndScaleIfNecessary: any;
 
 export function load() {
+  pkgName = getPackageName();
+  console.log("Package name:", pkgName);
+  getOffsetsFromJSON();
+
   createMessageByType = new NativeFunction(
     base.add(Offsets.CreateMessageByType),
     "pointer",
@@ -57,10 +62,11 @@ export function load() {
     "pointer",
     ["pointer", "pointer"],
   );
-  messagingSend = new NativeFunction(base.add(Offsets.MessagingSend), "bool", [
+  messagingSend = new NativeFunction(base.add(Offsets.Send), "bool", [
     "pointer",
     "pointer",
   ]);
+  /*
   showFloaterText = new NativeFunction(
     base.add(Offsets.GUIShowFloaterTextAtDefaultPos),
     "int",
@@ -91,6 +97,7 @@ export function load() {
     "float",
     "float",
   ]);
+  */
   setTextAndScaleIfNecessary = new NativeFunction(
     base.add(Offsets.SetTextAndScaleIfNecessary),
     "void",

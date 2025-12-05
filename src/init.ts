@@ -1,22 +1,30 @@
-import { base, load, player, setBase, showFloaterText } from "./definitions.js";
+import {
+  AssetManager,
+  createAssetManager,
+  gAssetManager,
+} from "./assetmanagerandroid.js";
+import { base, load, player, setBase } from "./definitions.js";
 import { installHooks } from "./mainHooks.js";
+import { getOffsetsFromJSON } from "./offsets.js";
 import { isAndroid } from "./platform.js";
-import { createStringObject, waitForModule } from "./util.js";
-
-for (const brawlerKey in player.ownedBrawlers) {
-    const brawler = player.ownedBrawlers[brawlerKey];
-    for (const skin of brawler.skins) {
-        player.ownedSkins.push(skin);
-    }
-}
+import { getPackageName } from "./util.js";
 
 (async () => {
+  console.log("Hello, world!");
+  if (isAndroid) await createAssetManager();
+  setImmediate(() => {
     let library = isAndroid ? "libg.so" : "laser";
-    setBase(await waitForModule(library));
-    console.log("isAndroid", isAndroid);
+    setBase(Module.getBaseAddress(library));
+    console.log("Running on", isAndroid ? "Android" : "iOS");
     console.log(`${library} loaded at: ${base}`);
-    setImmediate(() => {
-        load();
-        installHooks();
-    });
+
+    load();
+    for (const brawlerKey in player.ownedBrawlers) {
+      const brawler = player.ownedBrawlers[brawlerKey];
+      for (const skin of brawler.skins) {
+        player.ownedSkins.push(skin);
+      }
+    }
+    installHooks();
+  });
 })();

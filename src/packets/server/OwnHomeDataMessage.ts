@@ -413,7 +413,7 @@ export class OwnHomeDataMessage {
     stream.writeBoolean(config.registered);
     stream.writeInt(-1);
 
-    stream.writeVint(23);
+    stream.writeVint(24);
     const unlockedBrawler = Object.values(player.ownedBrawlers).map(
       (i) => i.cardID,
     );

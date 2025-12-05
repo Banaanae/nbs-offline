@@ -1,0 +1,49 @@
+{
+  "version": 59,
+  "offsets": {
+    "ServerConnectionUpdate": "0x1fa618",
+    "HasConnectFailed": "0x8",
+    "State": "0x18",
+    "MessageManagerInstance": "0x11828d8",
+    "MessageManagerReceiveMessage": "0x1f0c48",
+    "MessageManagerReceiveMessageThunk": "0x1f0c44",
+    "SendMessage": "0x1f0b98",
+    "Send": "0xdbdc40",
+    "CreateMessageByType": "0x3ecd4c",
+    "LogicLaserMessageFactory": "0x101891e",
+
+    "GetMessageType": "0x28",
+    "Destruct": "0x38",
+    "Encode": "0x10",
+    "Decode": "0x18",
+    "Messaging": "0x48",
+    "Version": "0x88",
+    "PayloadOffset": "0x14",
+    "PayloadSize": "0x18",
+    "PayloadPtr": "0x38",
+    "ByteStream": "0x8",
+
+    "IsDev": "0x32fbe8",
+    "IsProd": "0x32fbe8",
+    "IsDeveloperBuild": "0x32fc24",
+
+    "DebuggerWarning": "0xc018ec",
+    "DebuggerError": "0xc0191c",
+
+    "StringConstructor": "0xdcfacc",
+    "StartGame": "0x2e18c4",
+    "OperatorNew": "0xe0095c",
+
+    "SettingsScreenConstructor": "0x307494",
+    "SetTextAndScaleIfNecessary": "0x326e7c",
+    "PlayerProfileGetStat": "0x41b92c",
+
+    "UpdateLoadingProgress": "0x31b160",
+    "GotoAndStopFrameIndex": "0xbc3ee8",
+    "LoadingText": "0x78",
+    "LoadingPercent": "0x40",
+    "LoadingAlpha": "0x38",
+
+    "GetHelpfulHandState": "0x2f1cc0"
+  }
+}

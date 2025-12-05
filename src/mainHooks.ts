@@ -48,6 +48,7 @@ export function installHooks() {
   Interceptor.attach(base.add(Offsets.ServerConnectionUpdate), {
     onEnter: function (args) {
       if (args[0].readS32() == 0 && hasLoaded && firstTime) {
+        console.log("resuming from updater");
         args[0].writeS32(1);
         firstTime = false;
       }
@@ -88,13 +89,13 @@ export function installHooks() {
     },
   });
 
-  Interceptor.attach(base.add(Offsets.HomePageStartGame), {
+  Interceptor.attach(base.add(Offsets.StartGame), {
     onEnter: function (args) {
       args[3] = ptr(3);
     },
   });
 
-  Interceptor.attach(base.add(Offsets.MessageManagerSendMessage), {
+  Interceptor.attach(base.add(Offsets.SendMessage), {
     onEnter(args) {
       PiranhaMessage.encode(args[1]);
       let messaging = args[0].add(Offsets.Messaging).readPointer();
@@ -102,18 +103,21 @@ export function installHooks() {
     },
   });
 
+  /*
   Interceptor.replace(
-    base.add(Offsets.MessageManagerSendKeepAliveMessage),
+    base.add(Offsets.SendKeepAliveMessage),
     new NativeCallback(function () {}, "void", []),
   );
+  */
 
   Interceptor.replace(
-    base.add(Offsets.MessagingSend),
+    base.add(Offsets.Send),
     new NativeCallback(
       function (self, message) {
         let type = PiranhaMessage.getMessageType(message);
         let length = PiranhaMessage.getEncodingLength(message);
 
+        if (type === 10108) return 0;
         console.log("Type:", type);
         console.log("Length:", length);
         let payloadPtr = PiranhaMessage.getByteStream(message)
@@ -170,17 +174,7 @@ export function installHooks() {
     ),
   );
 
-  Interceptor.attach(base.add(Offsets.TutorialThingy), {
-    onLeave(retval) {
-      retval.replace(ptr(-1));
-    },
-  });
-
-  Interceptor.attach(base.add(Offsets.SettingsScreenConstructor), {
-    onLeave() {},
-  });
-
-  Interceptor.attach(base.add(Offsets.PlayerInfoGetStat), {
+  Interceptor.attach(base.add(Offsets.PlayerProfileGetStat), {
     onEnter(args) {
       this.id = args[1].toInt32();
     },
@@ -214,19 +208,22 @@ export function installHooks() {
     },
   });
 
-  Interceptor.attach(base.add(Offsets.BattleScreenShouldShowChatButton), {
+  // idk couldnt find on android
+  /*
+  Interceptor.attach(base.add(Offsets.ShouldShowChatButton), {
     onLeave(retval) {
       retval.replace(ptr(1)); // todo cfg opt
     },
   });
+  */
 
-  Interceptor.attach(base.add(Offsets.CombatHUDIsLeavePromptAllowed), {
+  Interceptor.attach(base.add(Offsets.GetHelpfulHandState), {
     onLeave(retval) {
-      retval.replace(ptr(1));
+      retval.replace(ptr(-1));
     },
   });
 
-  Interceptor.attach(base.add(Offsets.LoadingScreenUpdateLoadingProgress), {
+  Interceptor.attach(base.add(Offsets.UpdateLoadingProgress), {
     onEnter(args) {
       this.textfield = args[0].add(Offsets.LoadingText).readPointer();
       this.goToAndStopFrameIndexHook = Interceptor.attach(
@@ -252,4 +249,20 @@ export function installHooks() {
       }
     },
   });
+
+  if (isAndroid && Process.arch == "arm64") {
+    Interceptor.attach(base.add(Offsets.InitStateUpdateLoading), {
+      onEnter() {
+        const dlmgrinst = base
+          .add(Offsets.DownloadManagerInstance)
+          .readPointer();
+        dlmgrinst.add(Offsets.Unk1).writeS32(6);
+      },
+    });
+
+    Interceptor.replace(
+      base.add(Offsets.UpdateChronosResources),
+      new NativeCallback(function () {}, "void", []),
+    );
+  }
 }
