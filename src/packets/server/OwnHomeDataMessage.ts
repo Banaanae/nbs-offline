@@ -193,7 +193,10 @@ export class OwnHomeDataMessage {
     stream.writeVint(0);
     stream.writeVint(0);
 
-    stream.writeVint(2023189);
+    // daily data end
+    // conf data
+
+    stream.writeVint(-1);
 
     // events
     stream.writeVint(40);
@@ -321,6 +324,18 @@ export class OwnHomeDataMessage {
     stream.writeVint(0);
     stream.writeVint(0);
     stream.writeVint(0);
+
+    stream.writeVint(1);
+    stream.writeVint(1);
+    stream.writeBoolean(true);
+    stream.writeString("1a1d6744f7dfb7bcfa54e3876c944b1da9d075db");
+    stream.writeString("/3f8dc547-1aed-4d85-81b0-32ead16f7474_collab_toystory.sc");
+    stream.writeVint(83);
+    stream.writeVint(6);
+    stream.writeVint(0);
+    stream.writeVint(0);
+    stream.writeVint(0);
+
     stream.writeVint(0);
     stream.writeVint(0);
     stream.writeVint(0);
@@ -328,7 +343,8 @@ export class OwnHomeDataMessage {
     stream.writeVint(0);
     stream.writeVint(0);
     stream.writeVint(0);
-    stream.writeVint(0);
+
+    // logicconfdata end
 
     stream.writeLong(player.id[0], player.id[1]);
 
@@ -349,7 +365,14 @@ export class OwnHomeDataMessage {
     stream.writeVint(0);
     stream.writeVint(0);
     stream.writeVint(0);
-    stream.writeVint(0); // todo: unlocking brawler
+    stream.writeVint(1); // todo: unlocking brawler
+    stream.writeDataReference({high: 16, low: 0});
+    stream.writeVint(2); // credits needed
+    stream.writeVint(10000); // gem unlock price
+    stream.writeVint(0);
+    stream.writeVint(1); // current credits
+    stream.writeVint(0);
+    stream.writeVint(0);
 
     stream.writeVint(0);
 
