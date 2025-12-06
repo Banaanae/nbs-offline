@@ -8,7 +8,6 @@ export class LogicSelectCharacterCommand {
     stream = LogicCommand.decode(stream);
     let brawlerID = stream.readDataReference().low;
     console.log("New brawler id:", brawlerID);
-    console.log("remaining:", stream.offset - stream.payload.length);
     config.selectedBrawlers[0] = brawlerID;
     writeConfig(config);
     return stream;

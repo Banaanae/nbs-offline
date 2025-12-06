@@ -27,6 +27,7 @@ import { AvatarNameCheckRequestMessage } from "./packets/client/AvatarNameCheckR
 import { ChangeAvatarNameMessage } from "./packets/client/ChangeAvatarNameMessage.js";
 import { EndClientTurnMessage } from "./packets/client/EndClientTurnMessage.js";
 import { writeConfig } from "./config.js";
+import { SetSupportedCreatorMessage } from "./packets/client/SetSupportedCreatorMessage.js";
 
 let progress: number;
 let hasLoaded = false;
@@ -162,6 +163,8 @@ export function installHooks() {
             ChangeAvatarNameMessage.execute(player, stream);
           } else if (type == 14102) {
             EndClientTurnMessage.decodeAndExecute(player, stream);
+          } else if (type == 18686) {
+            SetSupportedCreatorMessage.decodeAndExecute(player, stream);
           }
         }
 

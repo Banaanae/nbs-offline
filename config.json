@@ -2,6 +2,7 @@
   "tutorial": true,
   "registered": false,
   "name": "Natesworks",
+  "supportedCreator": "Natesworks",
   "coins": 0,
   "gems": 0,
   "starpoints": 0,
@@ -34,6 +35,8 @@
   "rankedHighest": 0,
   "prestige": 0,
   "fameCredits": 300000,
+  "allCreatorCodesValid": false,
+  "creatorCodes": ["Natesworks", "kubune", "Hallo"],
   "events": [
     {
       "slot": 2,

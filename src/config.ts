@@ -41,7 +41,10 @@ export class Config {
   prestige: number = 0;
   fameCredits: number = 0;
   favouriteBrawler: number = 0;
-  rankedReputation: number = 100;
+  rankedReputation: number = 0;
+  supportedCreator: string = "";
+  allCreatorCodesValid = false;
+  creatorCodes: string[] = []
 }
 export function tryLoadDefaultConfig() {
   try {
@@ -113,6 +116,9 @@ export function readConfig() {
   config.fameCredits = json.fameCredits;
   config.favouriteBrawler = json.favouriteBrawler;
   config.rankedReputation = json.rankedReputation || 100;
+  config.supportedCreator = json.supportedCreator || "Natesworks";
+  config.allCreatorCodesValid = json.allCreatorCodesValid || false;
+  config.creatorCodes = json.creatorCodes || ["Natesworks", "kubune", "Hallo"];
 
   return config;
 }

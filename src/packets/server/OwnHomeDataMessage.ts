@@ -71,7 +71,7 @@ export class OwnHomeDataMessage {
       stream.writeDataReference({ high: 16, low: brawler });
     }
     stream.writeString(player.region);
-    stream.writeString(player.supportedCreator);
+    stream.writeString(config.supportedCreator);
 
     stream.writeVint(23); // int values
     stream.writeVlong(config.rankedReputation, 41);
