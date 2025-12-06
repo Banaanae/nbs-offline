@@ -9,6 +9,7 @@ An offline client that supports Android and iOS.
 - Config
 - Player profile
 - Changing name
+- Saving thumbnail, name color, favourite brawler and more
 
 ## Credits
 
