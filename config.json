@@ -30,6 +30,199 @@
   "artTest": false,
   "customLoadingScreen": true,
   "debugMenu": true,
+  "rankedCurrent": 0,
+  "rankedHighest": 0,
+  "prestige": 0,
+  "fameCredits": 300000,
+  "events": [
+    {
+      "slot": 2,
+      "tokens": 10,
+      "mapID": 774,
+      "claimedTokens": []
+    },
+    {
+      "slot": 1,
+      "tokens": 10,
+      "mapID": 810,
+      "claimedTokens": []
+    },
+    {
+      "slot": 3,
+      "tokens": 10,
+      "mapID": 542,
+      "claimedTokens": []
+    },
+    {
+      "slot": 4,
+      "tokens": 10,
+      "mapID": 761,
+      "claimedTokens": []
+    },
+    {
+      "slot": 5,
+      "tokens": 10,
+      "mapID": 903,
+      "claimedTokens": []
+    },
+    {
+      "slot": 6,
+      "tokens": 10,
+      "mapID": 642,
+      "claimedTokens": []
+    },
+    {
+      "slot": 7,
+      "tokens": 10,
+      "mapID": 21,
+      "claimedTokens": []
+    },
+    {
+      "slot": 10,
+      "tokens": 10,
+      "mapID": 177,
+      "claimedTokens": []
+    },
+    {
+      "slot": 9,
+      "tokens": 10,
+      "mapID": 752,
+      "claimedTokens": []
+    },
+    {
+      "slot": 34,
+      "tokens": 10,
+      "mapID": 2,
+      "claimedTokens": []
+    },
+    {
+      "slot": 12,
+      "tokens": 10,
+      "mapID": 809,
+      "claimedTokens": []
+    },
+    {
+      "slot": 13,
+      "tokens": 10,
+      "mapID": 817,
+      "claimedTokens": []
+    },
+    {
+      "slot": 20,
+      "tokens": 10,
+      "mapID": 636,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
+          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
+        }
+      }
+    },
+    {
+      "slot": 21,
+      "tokens": 10,
+      "mapID": 22,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
+          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
+        }
+      }
+    },
+    {
+      "slot": 22,
+      "tokens": 10,
+      "mapID": 19,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
+          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
+        }
+      }
+    },
+    {
+      "slot": 23,
+      "tokens": 10,
+      "mapID": 548,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
+          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
+        }
+      }
+    },
+    {
+      "slot": 36,
+      "tokens": 10,
+      "mapID": 548,
+      "claimedTokens": [],
+      "championShipInfo": {
+        "maxWins": 3,
+        "chronosTextEntry": "GRUESOME!",
+        "logicGemOffer": {
+          "id": 4,
+          "amount": 1,
+          "csvID": [
+            0,
+            0
+          ],
+          "skinID": 959
+        },
+        "chronosFileEntry": {
+          "scName": "(1a1d6744f7dfb7bcfa54e3876c944b1da9d075db",
+          "scFile": "/3f8dc547-1aed-4d85-81b0-32ead16f7474_collab_toystory.sc"
+        }
+      }
+    }
+  ],
   "unlockedBrawlers": {
     "0": {
       "cardID": 0,
@@ -1318,198 +1511,5 @@
       "state": 2,
       "masteryPoints": 0
     }
-  },
-  "events": [
-    {
-      "slot": 2,
-      "tokens": 10,
-      "mapID": 774,
-      "claimedTokens": []
-    },
-    {
-      "slot": 1,
-      "tokens": 10,
-      "mapID": 810,
-      "claimedTokens": []
-    },
-    {
-      "slot": 3,
-      "tokens": 10,
-      "mapID": 542,
-      "claimedTokens": []
-    },
-    {
-      "slot": 4,
-      "tokens": 10,
-      "mapID": 761,
-      "claimedTokens": []
-    },
-    {
-      "slot": 5,
-      "tokens": 10,
-      "mapID": 903,
-      "claimedTokens": []
-    },
-    {
-      "slot": 6,
-      "tokens": 10,
-      "mapID": 642,
-      "claimedTokens": []
-    },
-    {
-      "slot": 7,
-      "tokens": 10,
-      "mapID": 21,
-      "claimedTokens": []
-    },
-    {
-      "slot": 10,
-      "tokens": 10,
-      "mapID": 177,
-      "claimedTokens": []
-    },
-    {
-      "slot": 9,
-      "tokens": 10,
-      "mapID": 752,
-      "claimedTokens": []
-    },
-    {
-      "slot": 34,
-      "tokens": 10,
-      "mapID": 2,
-      "claimedTokens": []
-    },
-    {
-      "slot": 12,
-      "tokens": 10,
-      "mapID": 809,
-      "claimedTokens": []
-    },
-    {
-      "slot": 13,
-      "tokens": 10,
-      "mapID": 817,
-      "claimedTokens": []
-    },
-    {
-      "slot": 20,
-      "tokens": 10,
-      "mapID": 636,
-      "claimedTokens": [],
-      "championShipInfo": {
-        "maxWins": 3,
-        "chronosTextEntry": "GRUESOME!",
-        "logicGemOffer": {
-          "id": 4,
-          "amount": 1,
-          "csvID": [
-            0,
-            0
-          ],
-          "skinID": 959
-        },
-        "chronosFileEntry": {
-          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
-          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
-        }
-      }
-    },
-    {
-      "slot": 21,
-      "tokens": 10,
-      "mapID": 22,
-      "claimedTokens": [],
-      "championShipInfo": {
-        "maxWins": 3,
-        "chronosTextEntry": "GRUESOME!",
-        "logicGemOffer": {
-          "id": 4,
-          "amount": 1,
-          "csvID": [
-            0,
-            0
-          ],
-          "skinID": 959
-        },
-        "chronosFileEntry": {
-          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
-          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
-        }
-      }
-    },
-    {
-      "slot": 22,
-      "tokens": 10,
-      "mapID": 19,
-      "claimedTokens": [],
-      "championShipInfo": {
-        "maxWins": 3,
-        "chronosTextEntry": "GRUESOME!",
-        "logicGemOffer": {
-          "id": 4,
-          "amount": 1,
-          "csvID": [
-            0,
-            0
-          ],
-          "skinID": 959
-        },
-        "chronosFileEntry": {
-          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
-          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
-        }
-      }
-    },
-    {
-      "slot": 23,
-      "tokens": 10,
-      "mapID": 548,
-      "claimedTokens": [],
-      "championShipInfo": {
-        "maxWins": 3,
-        "chronosTextEntry": "GRUESOME!",
-        "logicGemOffer": {
-          "id": 4,
-          "amount": 1,
-          "csvID": [
-            0,
-            0
-          ],
-          "skinID": 959
-        },
-        "chronosFileEntry": {
-          "scName": "(82040537547002ae2f85da04fd223c423aaf7618",
-          "scFile": "/d35569bd-80ec-4007-82c0-b0bd9b6381b3_challenge_brawloween2024.sc"
-        }
-      }
-    },
-    {
-      "slot": 36,
-      "tokens": 10,
-      "mapID": 548,
-      "claimedTokens": [],
-      "championShipInfo": {
-        "maxWins": 3,
-        "chronosTextEntry": "GRUESOME!",
-        "logicGemOffer": {
-          "id": 4,
-          "amount": 1,
-          "csvID": [
-            0,
-            0
-          ],
-          "skinID": 959
-        },
-        "chronosFileEntry": {
-          "scName": "(1a1d6744f7dfb7bcfa54e3876c944b1da9d075db",
-          "scFile": "/3f8dc547-1aed-4d85-81b0-32ead16f7474_collab_toystory.sc"
-        }
-      }
-    }
-  ],
-  "rankedCurrent": 0,
-  "rankedHighest": 0,
-  "prestige": 0,
-  "fameCredits": 300000
+  }
 }

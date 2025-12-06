@@ -174,40 +174,6 @@ export function installHooks() {
     ),
   );
 
-  Interceptor.attach(base.add(Offsets.PlayerProfileGetStat), {
-    onEnter(args) {
-      this.id = args[1].toInt32();
-    },
-    onLeave(retval) {
-      switch (this.id) {
-        case 1: // 3v3 wins
-          retval.replace(ptr(config.trioWins));
-          break;
-        case 8: // solo wins
-          retval.replace(ptr(config.soloWins));
-          break;
-        case 11: // duo victories
-          retval.replace(ptr(config.duoWins));
-          break;
-        case 29: // trophies
-          retval.replace(ptr(player.trophies));
-          break;
-        case 4: // highest trophs
-          retval.replace(ptr(player.highestTrophies));
-          break;
-        case 24: // ranked current
-          retval.replace(ptr(config.rankedCurrent));
-          break;
-        case 25: // ranked highest
-          retval.replace(ptr(config.rankedHighest));
-          break;
-        case 20: // fame credits
-          retval.replace(ptr(config.fameCredits));
-          break;
-      }
-    },
-  });
-
   // idk couldnt find on android
   /*
   Interceptor.attach(base.add(Offsets.ShouldShowChatButton), {

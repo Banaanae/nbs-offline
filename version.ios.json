@@ -24,7 +24,7 @@
     "ByteStream": "0x8",
 
     "IsDev": "0x32fbe8",
-    "IsProd": "0x32fbe8",
+    "IsProd": "0x32fbf4",
     "IsDeveloperBuild": "0x32fc24",
 
     "DebuggerWarning": "0xc018ec",

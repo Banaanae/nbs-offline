@@ -1,6 +1,7 @@
 import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
 import { Config } from "../../config.js";
+import { config } from "../../definitions.js";
 
 export class PlayerProfileMessage {
   static encode(player: Player): number[] {
@@ -11,13 +12,9 @@ export class PlayerProfileMessage {
     stream.writeDataReference({ high: 16, low: player.favouriteBrawler });
     stream.writeDataReference({ high: 0, low: -1 }); // winstreak brawler
 
-    const ownedBrawlersCount = Object.keys(player.ownedBrawlers).length;
-    //stream.writeVint(ownedBrawlersCount);
-
-    // owned brawlers array doesnt even matter
     // HeroEntry::encode
     stream.writeVint(1); // hero entry
-    
+
     stream.writeDataReference({ high: 16, low: 1 }); // character id
     stream.writeDataReference({ high: 0, low: -1 }); // skin equipped
     stream.writeVint(0); // trophies
@@ -26,12 +23,24 @@ export class PlayerProfileMessage {
     stream.writeVint(0); // power level
     stream.writeVint(0); // mastery
 
-    //stream.writeVint(0); // done with hook in mainHooks.ts idk why it doesnt work
+    stream.writeVint(8);
+    stream.writeVint(1);
+    stream.writeVint(config.trioWins);
+    stream.writeVint(8);
+    stream.writeVint(config.soloWins);
+    stream.writeVint(11);
+    stream.writeVint(config.duoWins);
+    stream.writeVint(29);
+    stream.writeVint(player.trophies);
+    stream.writeVint(4);
+    stream.writeVint(player.highestTrophies);
+    stream.writeVint(24);
+    stream.writeVint(config.rankedHighest);
+    stream.writeVint(25);
+    stream.writeVint(config.rankedCurrent);
+    stream.writeVint(20);
+    stream.writeVint(config.fameCredits);
 
-    stream.writeVInt(0); // stat count
-    // stream.writeVInt(1) // stat id
-    // stream.writeVInt(0) // stat value
-    
     /* ***************************************** */
     stream.writeString(player.name);
     stream.writeVint(100);
@@ -51,9 +60,9 @@ export class PlayerProfileMessage {
     stream.writeDataReference({ high: 0, low: -1 }); // emote
     stream.writeDataReference({ high: 0, low: -1 }); // title
 
-    stream.writeBoolean(false); // alliance header 
-    stream.writeDataReference({ high: 0, low: 0}); // alliance role
-    
+    stream.writeBoolean(false); // alliance header
+    stream.writeDataReference({ high: 0, low: 0 }); // alliance role
+
     stream.writeVint(0);
 
     return stream.payload;

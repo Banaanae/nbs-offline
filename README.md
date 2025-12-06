@@ -12,4 +12,4 @@ An offline client that supports Android and iOS.
 
 ## Credits
 
-OwnHomeDataMessage structure by Soufgame.
+OwnHomeDataMessage structure by Soufgame. Player profile by kubune.

@@ -5,17 +5,23 @@ import { Offsets } from "./offsets.js";
 import { isAndroid } from "./platform.js";
 
 const read = new NativeFunction(
-  Process.getModuleByName("libc.so").getExportByName("read"),
+  Process.getModuleByName(
+    isAndroid ? "libc.so" : "libSystem.B.dylib",
+  ).getExportByName("read"),
   "int",
   ["int", "pointer", "int"],
 );
 export const open = new NativeFunction(
-  Process.getModuleByName("libc.so").getExportByName("open"),
+  Process.getModuleByName(
+    isAndroid ? "libc.so" : "libSystem.B.dylib",
+  ).getExportByName("open"),
   "int",
   ["pointer", "int", "int"],
 );
 export const close = new NativeFunction(
-  Process.getModuleByName("libc.so").getExportByName("close"),
+  Process.getModuleByName(
+    isAndroid ? "libc.so" : "libSystem.B.dylib",
+  ).getExportByName("close"),
   "int",
   ["int"],
 );
