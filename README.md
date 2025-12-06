@@ -10,6 +10,8 @@ An offline client that supports Android and iOS.
 - Player profile
 - Changing name
 - Saving thumbnail, name color, favourite brawler and more
+- Random bot names
+- Content creator codes
 
 ## Credits
 
