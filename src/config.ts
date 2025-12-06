@@ -156,6 +156,9 @@ export function writeConfig(config: Config) {
   data.artTest = config.artTest;
   data.customLoadingScreen = config.customLoadingScreen;
   data.debugMenu = config.debugMenu;
+  data.supportedCreator = config.supportedCreator;
+  data.allCreatorCodesValid = config.allCreatorCodesValid;
+  data.creatorCodes = config.creatorCodes;
 
   data.unlockedBrawlers = {};
   for (const [id, brawler] of Object.entries(config.ownedBrawlers)) {
