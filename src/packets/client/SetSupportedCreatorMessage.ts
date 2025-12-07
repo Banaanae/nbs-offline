@@ -14,11 +14,21 @@ export class SetSupportedCreatorMessage {
     } else {
       console.log("New CCC:", ccc);
     }
-    if (ccc != "" && !config.allCreatorCodesValid && !(config.creatorCodes.includes(ccc))) {
-      return Messaging.sendOfflineMessage(28686, SetSupportedCreatorResponseMessage.encode(player));
+    if (
+      ccc != "" &&
+      !config.allCreatorCodesValid &&
+      !config.creatorCodes.includes(ccc)
+    ) {
+      return Messaging.sendOfflineMessage(
+        28686,
+        SetSupportedCreatorResponseMessage.encode(player),
+      );
     }
     config.supportedCreator = ccc;
     writeConfig(config);
-    Messaging.sendOfflineMessage(24111, LogicSetSupportedCreatorCommand.encode(player));
+    Messaging.sendOfflineMessage(
+      24111,
+      LogicSetSupportedCreatorCommand.encode(player),
+    );
   }
 }

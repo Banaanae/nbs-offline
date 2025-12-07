@@ -32,6 +32,8 @@ import { EndClientTurnMessage } from "./packets/client/EndClientTurnMessage.js";
 import { writeConfig } from "./config.js";
 import { SetSupportedCreatorMessage } from "./packets/client/SetSupportedCreatorMessage.js";
 import { create } from "domain";
+import { CreatePlayerMapMessage } from "./packets/client/CreatePlayerMapMessage.js";
+import { PlayerMapsMessage } from "./packets/server/PlayerMapsMessage.js";
 
 let progress: number;
 let hasLoaded = false;
@@ -98,12 +100,11 @@ export function installHooks() {
     onEnter: function (args) {
       args[3] = ptr(3);
       if (config.randomBotNames) {
-        this.h = Interceptor.attach(base.add(Offsets.GetPlayerCount),
-        {
+        this.h = Interceptor.attach(base.add(Offsets.GetPlayerCount), {
           onLeave(retval) {
             setBotNames(getBotNames(retval.toInt32() - 1));
-            console.log("Bot names:", botNames.toString()); 
-          }
+            console.log("Bot names:", botNames.toString());
+          },
         });
       }
     },
@@ -113,8 +114,6 @@ export function installHooks() {
       }
     },
   });
-
-
 
   Interceptor.attach(base.add(Offsets.SendMessage), {
     onEnter(args) {
@@ -185,6 +184,13 @@ export function installHooks() {
             EndClientTurnMessage.decodeAndExecute(player, stream);
           } else if (type == 18686) {
             SetSupportedCreatorMessage.decodeAndExecute(player, stream);
+          } else if (type == 12100) {
+            let map = CreatePlayerMapMessage.execute(player, stream);
+          } else if (type == 12102) {
+            Messaging.sendOfflineMessage(
+              22102,
+              PlayerMapsMessage.encode(player),
+            );
           }
         }
 
@@ -255,16 +261,15 @@ export function installHooks() {
     );
   }
 
-  Interceptor.attach(base.add(Offsets.StringTableGetString),
-    {
-      onEnter(args) {
-        this.str = args[0].readUtf8String();
-      },
-      onLeave(retval) {
-        if (config.randomBotNames && this.str.startsWith("TID_BOT_")) {
-          let idx = this.str.split("TID_BOT_")[1] - 1;
-          retval.replace(createStringObject(botNames[idx]));
-        }
-      },
-    });
+  Interceptor.attach(base.add(Offsets.StringTableGetString), {
+    onEnter(args) {
+      this.str = args[0].readUtf8String();
+    },
+    onLeave(retval) {
+      if (config.randomBotNames && this.str.startsWith("TID_BOT_")) {
+        let idx = this.str.split("TID_BOT_")[1] - 1;
+        retval.replace(createStringObject(botNames[idx]));
+      }
+    },
+  });
 }
