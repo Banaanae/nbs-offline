@@ -32,12 +32,12 @@ import { EndClientTurnMessage } from "./packets/client/EndClientTurnMessage.js";
 import { writeConfig } from "./config.js";
 import { SetSupportedCreatorMessage } from "./packets/client/SetSupportedCreatorMessage.js";
 import { create } from "domain";
-import { CreatePlayerMapMessage } from "./packets/client/CreatePlayerMapMessage.js";
-import { PlayerMapsMessage } from "./packets/server/PlayerMapsMessage.js";
-import { DeletePlayerMapMessage} from "./packets/client/DeletePlayerMapMessage.js"
-import { TeamCreateMessage } from "./packets/client/teams/TeamCreateMessage.js"
-import { TeamEntry } from "./teams/teamentry.js"
-import { TeamMember } from "./teams/teammember.js"
+import { CreatePlayerMapMessage } from "./packets/client/mapmaker/CreatePlayerMapMessage.js";
+import { PlayerMapsMessage } from "./packets/server/mapmaker/PlayerMapsMessage.js";
+import { DeletePlayerMapMessage } from "./packets/client/mapmaker/DeletePlayerMapMessage.js";
+import { TeamCreateMessage } from "./packets/client/teams/TeamCreateMessage.js";
+import { TeamEntry } from "./teams/teamentry.js";
+import { TeamMember } from "./teams/teammember.js";
 import { Long } from "./long.js";
 
 let progress: number;
@@ -160,11 +160,11 @@ export function installHooks() {
               24101,
               OwnHomeDataMessage.encode(player),
             );
-	    let entry = new TeamEntry(new Long(0, 1), 1, 0, 1);
-            entry.teamMembers.push(new TeamMember(player, 11, true, 0, 1000));
-	    console.log("entry");
-	    let stream = new ByteStream([]);
-	    Messaging.sendOfflineMessage(24124, entry.encode(stream).payload);
+            let entry = new TeamEntry(new Long(0, 1), 1, 5);
+            entry.teamMembers.push(new TeamMember(player, 11, true, 3));
+            console.log("entry");
+            let stream = new ByteStream([]);
+            Messaging.sendOfflineMessage(24124, entry.encode(stream).payload);
           } else if (type == 17750 || type == 12108) {
             // go home from offline practice
             if (config.tutorial) {
@@ -174,7 +174,7 @@ export function installHooks() {
             Messaging.sendOfflineMessage(
               24101,
               OwnHomeDataMessage.encode(player),
-            );  
+            );
           } else if (type == 14110) {
             // erm execute shouldn't have these args :nerd:
             AskForBattleEndMessage.execute(player, stream);
@@ -202,10 +202,10 @@ export function installHooks() {
               PlayerMapsMessage.encode(player),
             );
           } else if (type == 12101) {
-	    DeletePlayerMapMessage.execute(player, stream);
-	  } else if (type == 14350) {
-	    TeamCreateMessage.execute(player, stream);
-	  }
+            DeletePlayerMapMessage.execute(player, stream);
+          } else if (type == 14350) {
+            TeamCreateMessage.execute(player, stream);
+          }
         }
 
         PiranhaMessage.destroyMessage(message);
