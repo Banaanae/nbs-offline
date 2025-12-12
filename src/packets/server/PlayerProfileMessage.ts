@@ -10,8 +10,8 @@ export class PlayerProfileMessage {
 
     // PlayerProfile::encode
     stream.writeVlong(player.id[0], player.id[1]);
-    stream.writeDataReference({ high: 16, low: player.favouriteBrawler });
-    stream.writeDataReference({ high: 0, low: -1 }); // winstreak brawler
+    stream.writeDataReference({ high: 16, low: config.favouriteBrawler });
+    stream.writeDataReference({ high: 16, low: config.winstreakBrawler }); // winstreak brawler
 
     // HeroEntry::encode
     stream.writeVint(1); // hero entry
@@ -55,7 +55,7 @@ export class PlayerProfileMessage {
     stream.writeString("hello world");
     stream.writeVint(0);
     stream.writeVint(0);
-    stream.writeVint(67); // max winstreak
+    stream.writeVint(config.winstreak); // max winstreak
     stream.writeDataReference({ high: 29, low: 0 }); // hero skin
     stream.writeDataReference({ high: 0, low: -1 }); // thumbnail 1
     stream.writeDataReference({ high: 0, low: -1 }); // thumbnail 2

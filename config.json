@@ -37,6 +37,8 @@
   "fameCredits": 300000,
   "allCreatorCodesValid": false,
   "randomBotNames": true,
+  "winstreak": 0,
+  "winstreakBrawler": 0,
   "events": [
     {
       "slot": 2,
