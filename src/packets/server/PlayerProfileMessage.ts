@@ -24,7 +24,7 @@ export class PlayerProfileMessage {
     stream.writeVint(0); // power level
     stream.writeVint(0); // mastery
 
-    stream.writeVint(8);
+    stream.writeVint(16);
     stream.writeVint(1);
     stream.writeVint(config.trioWins);
     stream.writeVint(8);
@@ -41,6 +41,22 @@ export class PlayerProfileMessage {
     stream.writeVint(config.rankedCurrent);
     stream.writeVint(20);
     stream.writeVint(config.fameCredits);
+    stream.writeVint(27);
+    stream.writeVint(config.creationDate);
+    stream.writeVint(28);
+    stream.writeVint(config.r35brawlers);
+    stream.writeVint(9);
+    stream.writeVint(config.highestRoboRumbleLvlPassed);
+    stream.writeVint(12);
+    stream.writeVint(config.highestBossFightLvlPassed);
+    stream.writeVint(15);
+    stream.writeVint(config.mostChallengeWins);
+    stream.writeVint(16);
+    stream.writeVint(config.highestRampageLvlPassed);
+    stream.writeVint(18);
+    stream.writeVint(config.highestSoloLeague);
+    stream.writeVint(19);
+    stream.writeVint(config.highestClubLeague);
 
     /* ***************************************** */
     let displaydata = new PlayerDisplayData(

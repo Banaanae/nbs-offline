@@ -48,6 +48,14 @@ export class Config {
   randomBotNames = true;
   winstreak = 0;
   winstreakBrawler = 0;
+  creationDate = 0;
+  highestRoboRumbleLvlPassed = 0;
+  highestBossFightLvlPassed = 0;
+  highestRampageLvlPassed = 0;
+  mostChallengeWins = 0;
+  highestClubLeague = 0;
+  highestSoloLeague = 0;
+  r35brawlers = 0;
 }
 export function tryLoadDefaultConfig() {
   try {
@@ -125,6 +133,17 @@ export function readConfig() {
   config.randomBotNames = json.randomBotNames || false;
   config.winstreak = json.winstreak || 0;
   config.winstreakBrawler = json.winstreakBrawler || 0;
+  config.creationDate = json.creationDate || 0;
+  config.highestRoboRumbleLvlPassed =
+    json.previousStats.highestRoboRumbleLvlPassed || 0;
+  config.highestBossFightLvlPassed =
+    json.previousStats.highestBossFightLvlPassed || 0;
+  config.highestRampageLvlPassed =
+    json.previousStats.highestRampageLvlPassed || 0;
+  config.challengeWins = json.previousStats.challengeWins || 0;
+  config.highestClubLeague = json.previousStats.highestClubLeague || 0;
+  config.highestSoloLeague = json.previousStats.highestSoloLeague || 0;
+  config.r35brawlers = json.previousStats.r35brawlers || 0;
 
   return config;
 }
@@ -190,6 +209,16 @@ export function writeConfig(config: Config) {
     data.randomBotNames = config.randomBotNames;
     data.winstreak = config.winstreak;
     data.winstreakBrawler = config.winstreakBrawler;
+    data.creationDate = config.creationDate;
+    data.previousStats.highestRoboRumbleLvlPassed =
+      config.highestRoboRumbleLvlPassed;
+    data.previousStats.highestBossFightLvlPassed =
+      config.highestBossFightLvlPassed;
+    data.previousStats.highestRampageLvlPassed = config.highestRampageLvlPassed;
+    data.previousStats.challengeWins = config.challengeWins;
+    data.previousStats.highestClubLeague = config.highestClubLeague;
+    data.previousStats.highestSoloLeague = config.highestSoloLeague;
+    data.previousStats.r35brawlers = config.r35brawlers;
   }
 
   const remove = new NativeFunction(libc.getExportByName("remove"), "int", [
