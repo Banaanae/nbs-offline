@@ -210,6 +210,13 @@ export function installHooks() {
   });
 
   Interceptor.replace(
+    base.add(Offsets.GetPlayerDraftMapNumLimit), 
+    new NativeCallback(() => {
+      return config.draftMapLimit
+    }, 'int', [])
+  )
+
+  Interceptor.replace(
     base.add(Offsets.ReceiveTeamGameStartingMessage),
     new NativeCallback(
       function () {

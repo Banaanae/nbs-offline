@@ -46,6 +46,7 @@ export class Config {
   allCreatorCodesValid = false;
   creatorCodes: string[] = [];
   randomBotNames = true;
+  draftMapLimit: number = 5;
   winstreak = 0;
   winstreakBrawler = 0;
   creationDate = 0;
@@ -131,6 +132,7 @@ export function readConfig() {
   config.allCreatorCodesValid = json.allCreatorCodesValid || false;
   config.creatorCodes = json.creatorCodes || ["Natesworks", "kubune", "Hallo"];
   config.randomBotNames = json.randomBotNames || false;
+  config.draftMapLimit = json.draftMapLimit || 5;
   config.winstreak = json.winstreak || 0;
   config.winstreakBrawler = json.winstreakBrawler || 0;
   config.creationDate = json.creationDate || 0;
@@ -209,6 +211,7 @@ export function writeConfig(config: Config) {
     data.favouriteBrawler = config.favouriteBrawler;
     data.rankedReputation = config.rankedReputation;
     data.randomBotNames = config.randomBotNames;
+    data.draftMapLimit = config.draftMapLimit;
     data.winstreak = config.winstreak;
     data.winstreakBrawler = config.winstreakBrawler;
     data.creationDate = config.creationDate;
