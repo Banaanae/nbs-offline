@@ -1,4 +1,3 @@
-import { Player } from "../../../player.js";
 import { ByteStream } from "../../../bytestream.js";
 import { Messaging } from "../../../messaging.js";
 import { AvatarNameCheckResponseMessage } from "../../server/namechange/AvatarNameCheckResponseMessage.js";

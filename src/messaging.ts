@@ -22,6 +22,7 @@ import { PlayerMapsMessage } from "./packets/server/mapmaker/PlayerMapsMessage.j
 import { DeletePlayerMapMessage } from "./packets/client/mapmaker/DeletePlayerMapMessage.js";
 import { TeamCreateMessage } from "./packets/client/teams/TeamCreateMessage.js";
 import { TeamGameStartingMessage } from "./packets/server/TeamGameStartingMessage.js";
+import { Logger } from "./utility/logger.js";
 
 export class Messaging {
   static sendOfflineMessage(id: number, payload: number[]): NativePointer {
@@ -46,7 +47,7 @@ export class Messaging {
       ["pointer"],
     );
     decode(message);
-    console.log("Message decoded succesfully");
+    Logger.debug("Message decoded succesfully");
     if (version == 1) {
       // login ok
       try {
@@ -55,7 +56,7 @@ export class Messaging {
     } else {
       messageManagerReceiveMessage(getMessageManagerInstance(), message);
     }
-    console.log("Message received");
+    Logger.debug("Message received");
     return message;
   }
 

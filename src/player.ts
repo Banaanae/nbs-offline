@@ -5,7 +5,6 @@ import { Config } from "./config.js";
 import { calculateHighestTrophies, calculateTrophies } from "./util.js";
 
 export class Player {
-  token = "pXrvhSEPBUQo70jmePrPVQmHJHUQMrpWav82U1kH";
   id = [0, 1];
   namecolor = 9;
   thumbnail = 0;

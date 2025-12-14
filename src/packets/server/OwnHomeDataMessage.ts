@@ -1,12 +1,12 @@
 import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
 import { config, player } from "../../definitions.js";
+import { Logger } from "../../utility/logger.js";
 
 export class OwnHomeDataMessage {
   static encode(): number[] {
     let stream = new ByteStream([]);
     const currentTime = Date.now() / 1000 + 3600 * 4;
-    console.log("Encoding OHD");
 
     stream.writeVint(currentTime);
     stream.writeVint(0);

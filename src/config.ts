@@ -2,8 +2,10 @@ import { Brawler } from "./brawler.js";
 import { configPath, libc } from "./definitions.js";
 import { getDefaultConfig } from "./util.js";
 import { Event } from "./event.js";
+import { Long } from "./long.js";
 
 export class Config {
+  id: Long = new Long(0, 1);
   tutorial = true;
   registered = false;
   name = "Natesworks";
@@ -58,6 +60,7 @@ export class Config {
   highestSoloLeague = 0;
   r35brawlers = 0;
   teamExperiment = false;
+  logLevel = 0;
 }
 export function tryLoadDefaultConfig() {
   try {
@@ -73,6 +76,9 @@ export function readConfig() {
   const json = JSON.parse(File.readAllText(configPath));
   const config = new Config();
 
+  if (json.id) {
+    config.id = new Long(json.id[0], json.id[1]);
+  }
   config.tutorial = json.tutorial;
   config.registered = json.registered;
   config.coins = json.coins;
@@ -150,6 +156,7 @@ export function readConfig() {
     config.r35brawlers = json.previousStats.r35brawlers || 0;
   }
   config.teamExperiment = json.teamExperiment || false;
+  config.logLevel = json.logLevel || 4;
 
   return config;
 }
@@ -228,6 +235,7 @@ export function writeConfig(config: Config) {
     };
 
     data.teamExperiment = config.teamExperiment;
+    data.logLevel = config.logLevel;
   }
 
   const remove = new NativeFunction(libc.getExportByName("remove"), "int", [

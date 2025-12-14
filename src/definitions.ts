@@ -3,6 +3,7 @@ import { getOffsetsFromJSON, Offsets } from "./offsets.js";
 import { isAndroid } from "./platform.js";
 import { Player } from "./player.js";
 import { getDocumentsDirectory, getPackageName } from "./util.js";
+import { Logger } from "./utility/logger.js";
 
 export let base = NULL;
 
@@ -38,7 +39,7 @@ export let startGame: any;
 export function load() {
   if (isAndroid) {
     pkgName = getPackageName();
-    console.log("Package name:", pkgName);
+    Logger.verbose("Package name:", pkgName);
   }
   getOffsetsFromJSON();
 
@@ -122,23 +123,27 @@ export function setBase(ptr: NativePointer) {
   base = ptr;
 }
 
-export const credits = `NBS Offline v59
+export const credits = `NBS Offline
 
 Made by Natesworks 
 Discord: dsc.gg/nbsoffline
 
-💙THANKS TO💙
+SPECIAL THANKS TO
 
 S.B:
-- Making an amazing guide on reverse engineering/making Brawl Stars Offline (peterr.dev/re/brawl-stars-offline).
-- Answering my questions when I didn't understand something.
+- Making an amazing guide on reverse engineering/making Brawl Stars Offline
+- Answering my questions when I didn't understand something
 
 xXCooBloyXx:
-- Telling me how to get some of the required offsets for sendOfflineMessage.
+- Telling me how to get some of the required offsets for sendOfflineMessage
 
 kubune:
 - Player profile message 
 - Ranked reputation
+- Helping me when I'm an idiot
+
+banaanae:
+- Draft map limit config option allowing for more maps
 `;
 
 export function setBotNames(x: string[]) {

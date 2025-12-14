@@ -4,16 +4,14 @@ import {
   base,
   botNames,
   config,
-  homeModeGetInstance,
   setBotNames,
   setTextAndScaleIfNecessary,
-  startGame,
 } from "./definitions.js";
 import { Messaging } from "./messaging.js";
 import { createStringObject, decodeString, getBotNames } from "./util.js";
 import { ByteStream } from "./bytestream.js";
 import { isAndroid } from "./platform.js";
-import { LogicData } from "./logicdata.js";
+import { Logger } from "./utility/logger.js";
 
 let progress: number;
 let hasLoaded = false;
@@ -22,20 +20,20 @@ let firstTime = false;
 export function installHooks() {
   Interceptor.attach(base.add(Offsets.DebuggerError), {
     onEnter(args) {
-      console.log("ERROR:", args[0].readCString());
+      Logger.error(args[0].readCString());
     },
   });
 
   Interceptor.attach(base.add(Offsets.DebuggerWarning), {
     onEnter(args) {
-      console.log("WARN:", decodeString(args[0]));
+      Logger.warn(decodeString(args[0]));
     },
   });
 
   Interceptor.attach(base.add(Offsets.ServerConnectionUpdate), {
     onEnter: function (args) {
       if (args[0].readS32() == 0 && hasLoaded && firstTime) {
-        console.log("resuming from updater");
+        Logger.debug("Resuming from updater"); // TODO: rework this trash
         args[0].writeS32(1);
         firstTime = false;
       }
@@ -83,7 +81,7 @@ export function installHooks() {
         this.h = Interceptor.attach(base.add(Offsets.GetPlayerCount), {
           onLeave(retval) {
             setBotNames(getBotNames(retval.toInt32() - 1));
-            console.log("Bot names:", botNames.toString());
+            Logger.verbose("Bot names:", botNames.toString());
           },
         });
       }
@@ -118,15 +116,15 @@ export function installHooks() {
         let length = PiranhaMessage.getEncodingLength(message);
 
         if (type === 10108) return 0;
-        console.log("Type:", type);
-        console.log("Length:", length);
+        Logger.info("Recieved message of type:", type);
+        Logger.verbose("Length:", length);
         let payloadPtr = PiranhaMessage.getByteStream(message)
           .add(Offsets.PayloadPtr)
           .readPointer();
         let payload = payloadPtr.readByteArray(length);
         if (payload !== null) {
           let stream = new ByteStream(Array.from(new Uint8Array(payload)));
-          console.log("Stream dump:", payload);
+          Logger.debug("Stream dump:", payload);
           Messaging.handleMessage(type, stream);
         }
 
@@ -216,33 +214,6 @@ export function installHooks() {
         return config.draftMapLimit;
       },
       "int",
-      [],
-    ),
-  );
-
-  Interceptor.replace(
-    base.add(Offsets.ReceiveTeamGameStartingMessage),
-    new NativeCallback(
-      function () {
-        console.log("trying to start");
-        const homePage = homeModeGetInstance()
-          .add(Offsets.HomeScreenInstance)
-          .readPointer()
-          .add(Offsets.HomePageInstance)
-          .readPointer();
-        startGame(
-          homePage,
-          ptr(0),
-          new LogicData(15, 10).ptr,
-          3,
-          0,
-          new LogicData(16, 0).ptr,
-          0,
-          new LogicData(29, 0).ptr,
-          0,
-        );
-      },
-      "void",
       [],
     ),
   );

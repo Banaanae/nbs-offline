@@ -1,6 +1,7 @@
 import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
 import { CommandHandler } from "../../commandhandler.js";
+import { Logger } from "../../utility/logger.js";
 
 export class EndClientTurnMessage {
   static decode(stream: ByteStream) {
@@ -8,7 +9,7 @@ export class EndClientTurnMessage {
     let tick = stream.readVint();
     let checksum = stream.readVint();
     let count = stream.readVint();
-    console.log("Command amount:", count);
+    Logger.verbose("Command amount:", count);
     return { stream, tick, checksum, count };
   }
 
@@ -22,7 +23,7 @@ export class EndClientTurnMessage {
     let { stream, count } = data;
     for (let i = 0; i < count; i++) {
       let id = stream.readVint();
-      console.log("Command ID:", id);
+      Logger.verbose("Command ID:", id);
       stream = CommandHandler.handleCommand(id, stream);
     }
   }

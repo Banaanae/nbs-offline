@@ -4,6 +4,7 @@ import { LogicSelectFavouriteHeroCommand } from "./commands/client/LogicSelectFa
 import { LogicSelectSkinCommand } from "./commands/client/LogicSelectSkinCommand.js";
 import { LogicSetPlayerNameColorCommand } from "./commands/client/LogicSetPlayerNameColorCommand.js";
 import { LogicSetPlayerThumbnailCommand } from "./commands/client/LogicSetPlayerThumbnailCommand.js";
+import { Logger } from "./utility/logger.js";
 
 export class CommandHandler {
   static handleCommand(id: number, stream: ByteStream): ByteStream {
@@ -35,7 +36,7 @@ export class CommandHandler {
         LogicSelectSkinCommand.execute(skin);
         break;
       default:
-        console.log("Unhandled command of type:", id);
+        Logger.warn("Unhandled command of type:", id);
         break;
     }
     return stream;

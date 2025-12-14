@@ -1,5 +1,6 @@
 {
   "version": 59,
+  "platform": "android",
   "offsets": {
     "ServerConnectionUpdate": "0x60fda8",
     "HasConnectFailed": "0x8",

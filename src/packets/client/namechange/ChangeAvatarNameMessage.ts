@@ -3,6 +3,7 @@ import { Messaging } from "../../../messaging.js";
 import { LogicChangeAvatarNameCommand } from "../../../commands/server/LogicChangeAvatarNameCommand.js";
 import { config, player } from "../../../definitions.js";
 import { writeConfig } from "../../../config.js";
+import { Logger } from "../../../utility/logger.js";
 
 export class ChangeAvatarNameMessage {
   static decode(stream: ByteStream): string {
@@ -10,11 +11,10 @@ export class ChangeAvatarNameMessage {
   }
 
   static execute(name: string): void {
-    player.name = name;
     config.name = name;
     config.registered = true;
     writeConfig(config);
-    console.log("Changed name to", name);
+    Logger.verbose("Changed name to", name);
     Messaging.sendOfflineMessage(24111, LogicChangeAvatarNameCommand.encode());
   }
 }

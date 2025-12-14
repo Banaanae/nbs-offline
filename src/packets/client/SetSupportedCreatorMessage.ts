@@ -1,10 +1,10 @@
-import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
 import { Messaging } from "../../messaging.js";
 import { config } from "../../definitions.js";
 import { writeConfig } from "../../config.js";
 import { SetSupportedCreatorResponseMessage } from "../server/SetSupportedCreatorResponseMessage.js";
 import { LogicSetSupportedCreatorCommand } from "../../commands/server/LogicSetSupportedCreatorCommand.js";
+import { Logger } from "../../utility/logger.js";
 
 export class SetSupportedCreatorMessage {
   static decode(stream: ByteStream) {
@@ -14,9 +14,9 @@ export class SetSupportedCreatorMessage {
 
   static execute(ccc: string) {
     if (ccc == "") {
-      console.log("Clearing CCC");
+      Logger.debug("Clearing CCC");
     } else {
-      console.log("New CCC:", ccc);
+      Logger.debug("New CCC:", ccc);
     }
     if (
       ccc != "" &&

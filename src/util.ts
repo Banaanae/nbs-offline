@@ -1,10 +1,8 @@
-import { gAssetManager } from "./assetmanagerandroid.js";
+import { gAssetManager } from "./utility/assetmanagerandroid.js";
 import { Brawler } from "./brawler.js";
 import { base, getString, malloc, pkgName, stringCtor } from "./definitions.js";
 import { Offsets } from "./offsets.js";
 import { isAndroid } from "./platform.js";
-
-let debugHookCounter = 0;
 
 const read = new NativeFunction(
   Process.getModuleByName(

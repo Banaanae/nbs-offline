@@ -2,6 +2,7 @@ import { ByteStream } from "../../bytestream.js";
 import { writeConfig } from "../../config.js";
 import { config } from "../../definitions.js";
 import { LogicCommand } from "../../logiccommand.js";
+import { Logger } from "../../utility/logger.js";
 
 export class LogicSetPlayerThumbnailCommand {
   static decode(stream: ByteStream): any {
@@ -11,7 +12,7 @@ export class LogicSetPlayerThumbnailCommand {
   }
 
   static execute(thumbnailID: number) {
-    console.log("New thumbnail id:", thumbnailID);
+    Logger.verbose("New thumbnail id:", thumbnailID);
     config.thumbnail = thumbnailID;
     writeConfig(config);
   }
