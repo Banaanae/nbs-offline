@@ -156,7 +156,7 @@ export function readConfig() {
     config.r35brawlers = json.previousStats.r35brawlers || 0;
   }
   config.teamExperiment = json.teamExperiment || false;
-  config.logLevel = json.logLevel || 4;
+  config.logLevel = json.logLevel || 0;
 
   return config;
 }

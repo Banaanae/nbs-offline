@@ -33,8 +33,6 @@ export let stageAddChild: any;
 export let setTextAndScaleIfNecessary: any;
 export let getString: any;
 export let getDataByID: any;
-export let homeModeGetInstance: any;
-export let startGame: any;
 
 export function load() {
   if (isAndroid) {
@@ -91,26 +89,6 @@ export function load() {
     ),
     "pointer",
     ["int"],
-  );
-  homeModeGetInstance = new NativeFunction(
-    base.add(Offsets.HomeModeGetInstance),
-    "pointer",
-    [],
-  );
-  startGame = new NativeFunction(
-    base.add(isAndroid ? Offsets.StartGame : Offsets.StartGameThunk),
-    "void",
-    [
-      "pointer",
-      "pointer",
-      "pointer",
-      "int",
-      "int",
-      "pointer",
-      "int",
-      "pointer",
-      "int",
-    ],
   );
 
   documentsDirectory = getDocumentsDirectory();

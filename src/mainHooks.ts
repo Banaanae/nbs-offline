@@ -12,6 +12,7 @@ import { createStringObject, decodeString, getBotNames } from "./util.js";
 import { ByteStream } from "./bytestream.js";
 import { isAndroid } from "./platform.js";
 import { Logger } from "./utility/logger.js";
+import { GlobalID } from "./globalid.js";
 
 let progress: number;
 let hasLoaded = false;
@@ -111,7 +112,7 @@ export function installHooks() {
   Interceptor.replace(
     base.add(Offsets.Send),
     new NativeCallback(
-      function (self, message) {
+      function (_self, message) {
         let type = PiranhaMessage.getMessageType(message);
         let length = PiranhaMessage.getEncodingLength(message);
 
@@ -179,6 +180,7 @@ export function installHooks() {
     },
   });
 
+  // TODO: Remove this
   if (isAndroid && Process.arch == "arm64") {
     Interceptor.attach(base.add(Offsets.InitStateUpdateLoading), {
       onEnter() {

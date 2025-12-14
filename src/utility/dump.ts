@@ -3,6 +3,7 @@
 import { base } from "../definitions";
 import { GlobalID } from "../globalid";
 import { Offsets } from "../offsets";
+import { Logger } from "./logger";
 
 export class Dumper {
   // hooks
@@ -16,8 +17,17 @@ export class Dumper {
   /**
    * @param offset Offset of the encode function
    */
-  dump(offset: NativePointer) {
+  dump(offset: number) {
     const addr = base.add(offset);
+    const self = this;
+    Interceptor.attach(addr, {
+      onEnter() {
+        self.hookWrites();
+      },
+      onLeave() {
+        self.detachWrites();
+      },
+    });
   }
 
   hookWrites() {
@@ -28,8 +38,13 @@ export class Dumper {
           const globalID = args[1].add(Offsets.GlobalID).readInt();
           const classID = GlobalID.getClassID(globalID);
           const instanceID = GlobalID.getInstanceID(globalID);
+          Logger.info("global id", globalID);
         },
       },
     );
+  }
+
+  detachWrites() {
+    this.writeDataReference?.detach();
   }
 }
