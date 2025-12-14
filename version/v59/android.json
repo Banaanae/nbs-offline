@@ -56,6 +56,10 @@
 
     "GetPlayerDraftMapNumLimit": "0x8760a0",
 
-    "GetPlayerCount": "0x912b14"
+    "GetPlayerCount": "0x912b14",
+
+    "GlobalID": "0x20",
+    
+    "LogicDataTablesGetDataByID": "0x7df1f4"
   }
 }

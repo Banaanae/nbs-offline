@@ -61,6 +61,8 @@
     "WriteLongLong": "0xc00654",
     "WriteString": "0xbffa64",
 
-    "GlobalID": "0x20"
+    "GlobalID": "0x20",
+    
+    "LogicDataTablesGetDataByIDThunk": "0x377180"
   }
 }
