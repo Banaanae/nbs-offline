@@ -1,7 +1,5 @@
 // Parts of this code was taken from NBS v44 and were AI generated
 
-import { LogLevel } from "frida";
-import util from "util";
 import { config } from "../definitions";
 
 function getTimestamp(): string {
@@ -43,7 +41,7 @@ function format(args: any[]): string {
 
 // TODO: logging to file and logcat
 /*
-Loglevels:
+Log levels:
 0 - Error, warn, info, debug, verbose
 1 - Error, warn, info, debug
 2 - Error, warn, info
