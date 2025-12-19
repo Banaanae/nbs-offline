@@ -6,7 +6,7 @@ export class SetSupportedCreatorResponseMessage {
   static encode(): number[] {
     let stream = new ByteStream([]);
 
-    stream.writeVint(1);
+    stream.writeVInt(1);
     stream.writeString(config.supportedCreator);
 
     return stream.payload;

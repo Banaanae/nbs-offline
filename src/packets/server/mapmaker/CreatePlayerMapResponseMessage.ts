@@ -6,7 +6,7 @@ export class CreatePlayerMapResponseMessage {
   static encode(map: PlayerMap): number[] {
     let stream = new ByteStream([]);
 
-    stream.writeVint(0);
+    stream.writeVInt(0);
     stream.writeBoolean(true);
     stream = map.encode(stream);
 

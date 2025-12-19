@@ -9,6 +9,7 @@ type Args = {
   host?: string;
   pid?: string;
   name?: string;
+  platform?: string;
 };
 
 const trackers = new Map();
@@ -21,6 +22,7 @@ function parseArgs(): Args {
     if (a === "--host" || a === "-H") out.host = args[++i];
     else if (a === "--pid" || a === "-p") out.pid = args[++i];
     else if (a === "--name" || a === "-n") out.name = args[++i];
+    else if (a == "--platform" || a == "-P") out.platform = args[++i];
   }
   return out;
 }
@@ -33,8 +35,10 @@ async function main() {
 
   let target: string | number | undefined = args.pid ?? args.name;
   if (!target) throw new Error("missing --pid or --name");
+  if (args.platform != "android" && args.platform != "ios")
+    throw new Error("missing platform");
 
-  if (args.name && !args.pid) {
+  if (args.name && !args.pid && args.platform == "android") {
     try {
       const out = execSync(`adb shell pidof ${args.name}`, {
         encoding: "utf8",
@@ -89,7 +93,7 @@ async function main() {
   });
 
   await script.load();
-  console.log("attached and listening");
+  //console.log("attached and listening");
 }
 
 main().catch((err) => {

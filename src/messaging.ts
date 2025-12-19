@@ -23,6 +23,7 @@ import { DeletePlayerMapMessage } from "./packets/client/mapmaker/DeletePlayerMa
 import { TeamCreateMessage } from "./packets/client/teams/TeamCreateMessage.js";
 import { TeamGameStartingMessage } from "./packets/server/TeamGameStartingMessage.js";
 import { Logger } from "./utility/logger.js";
+import { decode } from "punycode";
 
 export class Messaging {
   static sendOfflineMessage(id: number, payload: number[]): NativePointer {
@@ -41,11 +42,9 @@ export class Messaging {
         .add(Offsets.PayloadPtr)
         .writePointer(payloadPtr);
     }
-    let decode = new NativeFunction(
-      message.readPointer().add(Offsets.Decode).readPointer(),
-      "void",
-      ["pointer"],
-    );
+    let decodeOffset = message.readPointer().add(Offsets.Decode).readPointer();
+    Logger.debug("Decode function for type", id + ":", decodeOffset.sub(base));
+    let decode = new NativeFunction(decodeOffset, "void", ["pointer"]);
     decode(message);
     Logger.debug("Message decoded succesfully");
     if (version == 1) {

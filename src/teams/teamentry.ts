@@ -14,25 +14,25 @@ export class TeamEntry {
   }
 
   encode(stream: ByteStream): ByteStream {
-    stream.writeVint(this.type);
+    stream.writeVInt(this.type);
     stream.writeBoolean(this.type == 1);
-    stream.writeVint(3);
+    stream.writeVInt(3);
     stream.writeLong(this.id.high, this.id.low);
-    stream.writeVint(0);
+    stream.writeVInt(0);
     stream.writeBoolean(false);
     stream.writeBoolean(false);
     for (let i = 0; i < 3; i++) {
-      stream.writeVint(0);
+      stream.writeVInt(0);
     }
-    stream.writeDataReference({ high: 15, low: 8 });
+    stream.writeDataReference(15, 8);
     stream.writeBoolean(false); // battle player map
-    stream.writeVint(this.teamMembers.length);
+    stream.writeVInt(this.teamMembers.length);
     stream = this.teamMembers.reduce((prev, x) => {
       return x.encode(prev);
     }, stream);
-    stream.writeVint(0); // invites
-    stream.writeVint(0); // join requests
-    stream.writeVint(0); // disabled bots
+    stream.writeVInt(0); // invites
+    stream.writeVInt(0); // join requests
+    stream.writeVInt(0); // disabled bots
     stream.writeBoolean(true); // enable chat
     stream.writeBoolean(false); // accessory
     stream.writeBoolean(false); // gears

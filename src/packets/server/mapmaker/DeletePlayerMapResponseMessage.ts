@@ -6,8 +6,8 @@ export class DeletePlayerMapResponseMessage {
   static encode(id: Long): number[] {
     let stream = new ByteStream([]);
 
-    stream.writeVint(0); // err
-    stream.writeVlong(id.high, id.low);
+    stream.writeVInt(0); // err
+    stream.writeVLong(id.high, id.low);
 
     return stream.payload;
   }

@@ -7,7 +7,7 @@ export class LogicSetSupportedCreatorCommand {
   static encode(): number[] {
     let stream = new ByteStream([]);
 
-    stream.writeVint(215);
+    stream.writeVInt(215);
     stream.writeBoolean(true);
     stream.writeString(config.supportedCreator);
     stream.payload.concat(LogicCommand.encode());

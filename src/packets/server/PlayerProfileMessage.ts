@@ -1,6 +1,4 @@
-import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
-import { Config } from "../../config.js";
 import { config, player } from "../../definitions.js";
 import { PlayerDisplayData } from "../../playerdisplaydata.js";
 
@@ -9,54 +7,54 @@ export class PlayerProfileMessage {
     let stream = new ByteStream([]);
 
     // PlayerProfile::encode
-    stream.writeVlong(player.id[0], player.id[1]);
-    stream.writeDataReference({ high: 16, low: config.favouriteBrawler });
-    stream.writeDataReference({ high: 16, low: config.winstreakBrawler }); // winstreak brawler
+    stream.writeVLong(player.id[0], player.id[1]);
+    stream.writeDataReference(16, config.favouriteBrawler);
+    stream.writeDataReference(16, config.winstreakBrawler); // winstreak brawler
 
     // HeroEntry::encode
-    stream.writeVint(1); // hero entry
+    stream.writeVInt(1); // hero entry
 
-    stream.writeDataReference({ high: 16, low: 1 }); // character id
-    stream.writeDataReference({ high: 0, low: -1 }); // skin equipped
-    stream.writeVint(0); // trophies
-    stream.writeVint(0); // highest trophies
-    stream.writeVint(1); // highest season trophies
-    stream.writeVint(0); // power level
-    stream.writeVint(0); // mastery
+    stream.writeDataReference(16, 1); // character id
+    stream.writeDataReference(0, -1); // skin equipped
+    stream.writeVInt(0); // trophies
+    stream.writeVInt(0); // highest trophies
+    stream.writeVInt(1); // highest season trophies
+    stream.writeVInt(0); // power level
+    stream.writeVInt(0); // mastery
 
-    stream.writeVint(16);
-    stream.writeVint(1);
-    stream.writeVint(config.trioWins);
-    stream.writeVint(8);
-    stream.writeVint(config.soloWins);
-    stream.writeVint(11);
-    stream.writeVint(config.duoWins);
-    stream.writeVint(29);
-    stream.writeVint(player.trophies);
-    stream.writeVint(4);
-    stream.writeVint(player.highestTrophies);
-    stream.writeVint(24);
-    stream.writeVint(config.rankedHighest);
-    stream.writeVint(25);
-    stream.writeVint(config.rankedCurrent);
-    stream.writeVint(20);
-    stream.writeVint(config.fameCredits);
-    stream.writeVint(27);
-    stream.writeVint(config.creationDate);
-    stream.writeVint(28);
-    stream.writeVint(config.r35brawlers);
-    stream.writeVint(9);
-    stream.writeVint(config.highestRoboRumbleLvlPassed);
-    stream.writeVint(12);
-    stream.writeVint(config.highestBossFightLvlPassed);
-    stream.writeVint(15);
-    stream.writeVint(config.mostChallengeWins);
-    stream.writeVint(16);
-    stream.writeVint(config.highestRampageLvlPassed);
-    stream.writeVint(18);
-    stream.writeVint(config.highestSoloLeague);
-    stream.writeVint(19);
-    stream.writeVint(config.highestClubLeague);
+    stream.writeVInt(16);
+    stream.writeVInt(1);
+    stream.writeVInt(config.trioWins);
+    stream.writeVInt(8);
+    stream.writeVInt(config.soloWins);
+    stream.writeVInt(11);
+    stream.writeVInt(config.duoWins);
+    stream.writeVInt(29);
+    stream.writeVInt(player.trophies);
+    stream.writeVInt(4);
+    stream.writeVInt(player.highestTrophies);
+    stream.writeVInt(24);
+    stream.writeVInt(config.rankedHighest);
+    stream.writeVInt(25);
+    stream.writeVInt(config.rankedCurrent);
+    stream.writeVInt(20);
+    stream.writeVInt(config.fameCredits);
+    stream.writeVInt(27);
+    stream.writeVInt(config.creationDate);
+    stream.writeVInt(28);
+    stream.writeVInt(config.r35brawlers);
+    stream.writeVInt(9);
+    stream.writeVInt(config.highestRoboRumbleLvlPassed);
+    stream.writeVInt(12);
+    stream.writeVInt(config.highestBossFightLvlPassed);
+    stream.writeVInt(15);
+    stream.writeVInt(config.mostChallengeWins);
+    stream.writeVInt(16);
+    stream.writeVInt(config.highestRampageLvlPassed);
+    stream.writeVInt(18);
+    stream.writeVInt(config.highestSoloLeague);
+    stream.writeVInt(19);
+    stream.writeVInt(config.highestClubLeague);
 
     /* ***************************************** */
     let displaydata = new PlayerDisplayData(
@@ -69,19 +67,19 @@ export class PlayerProfileMessage {
     /* ***************************************** */
     stream.writeBoolean(false);
     stream.writeString("hello world");
-    stream.writeVint(0);
-    stream.writeVint(0);
-    stream.writeVint(config.winstreak); // max winstreak
-    stream.writeDataReference({ high: 29, low: 0 }); // hero skin
-    stream.writeDataReference({ high: 0, low: -1 }); // thumbnail 1
-    stream.writeDataReference({ high: 0, low: -1 }); // thumbnail 2
-    stream.writeDataReference({ high: 0, low: -1 }); // emote
-    stream.writeDataReference({ high: 0, low: -1 }); // title
+    stream.writeVInt(0);
+    stream.writeVInt(0);
+    stream.writeVInt(config.winstreak); // max winstreak
+    stream.writeDataReference(29, 0); // hero skin
+    stream.writeDataReference(0, -1); // thumbnail 1
+    stream.writeDataReference(0, -1); // thumbnail 2
+    stream.writeDataReference(0, -1); // emote
+    stream.writeDataReference(0, -1); // title
 
     stream.writeBoolean(false); // alliance header
-    stream.writeDataReference({ high: 0, low: 0 }); // alliance role
+    stream.writeDataReference(0, 0); // alliance role
 
-    stream.writeVint(0);
+    stream.writeVInt(0);
 
     return stream.payload;
   }

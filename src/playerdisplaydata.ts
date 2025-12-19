@@ -13,10 +13,10 @@ export class PlayerDisplayData {
 
   encode(stream: ByteStream): ByteStream {
     stream.writeString(this.name);
-    stream.writeVint(100);
-    stream.writeVint(28000000 + this.thumbnail);
-    stream.writeVint(43000000 + this.namecolor);
-    stream.writeVint(43000000 + this.namecolor); // haspremiumpass == + player.namecolor
+    stream.writeVInt(100);
+    stream.writeVInt(28000000 + this.thumbnail);
+    stream.writeVInt(43000000 + this.namecolor);
+    stream.writeVInt(43000000 + this.namecolor); // haspremiumpass == + player.namecolor
     return stream;
   }
 }

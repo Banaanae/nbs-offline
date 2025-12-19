@@ -75,10 +75,10 @@ export class ByteStream {
     return utf8ArrayToString(new Uint8Array(bytes));
   }
 
-  writeDataReference(val: Long) {
+  writeDataReference(classID: number, instanceID: number) {
     this.bitoffset = 0;
-    this.writeVint(val.high);
-    if (val.high != 0) this.writeVint(val.low);
+    this.writeVInt(classID);
+    if (classID != 0) this.writeVInt(instanceID);
   }
 
   readVint(): number {
@@ -189,7 +189,7 @@ export class ByteStream {
     }
   }
 
-  writeVint(value: number) {
+  writeVInt(value: number) {
     this.bitoffset = 0;
     if (value < 0) {
       if (value >= -63) {
@@ -248,10 +248,10 @@ export class ByteStream {
     }
   }
 
-  writeVlong(high: number, low: number) {
+  writeVLong(high: number, low: number) {
     this.bitoffset = 0;
-    this.writeVint(high);
-    this.writeVint(low);
+    this.writeVInt(high);
+    this.writeVInt(low);
   }
 
   writeBoolean(value: boolean) {
@@ -292,4 +292,3 @@ export class ByteStream {
     this.offset += length;
   }
 }
-

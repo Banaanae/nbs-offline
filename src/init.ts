@@ -22,8 +22,8 @@ import { Dumper } from "./utility/dump.js";
     }
     installHooks();
     if (!isAndroid) {
-      let dumper = new Dumper();
-      dumper.dump("eventdata", 0x3fc9e4);
+      let dumper = new Dumper(true);
+      dumper.dump("playerprofile", 0x41ba64);
     }
   });
 })();

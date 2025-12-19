@@ -17,21 +17,21 @@ export class PlayerMap {
   }
 
   encode(stream: ByteStream): ByteStream {
-    stream.writeVlong(this.id[0], this.id[1]);
+    stream.writeVLong(this.id[0], this.id[1]);
     stream.writeString(this.name);
-    stream.writeVint(this.gmv);
+    stream.writeVInt(this.gmv);
     stream.writeDataReference({ high: 54, low: this.mapEnvironmentData });
     if (this.data.length > 0) stream.writeBytes(this.data, this.data.length);
     else stream.writeInt(-1);
-    stream.writeVlong(this.accountID[0], this.accountID[1]);
+    stream.writeVLong(this.accountID[0], this.accountID[1]);
     stream.writeString(this.avatarName);
-    stream.writeVint(1); // state
+    stream.writeVInt(1); // state
     stream.writeLong(0, 0); // update time since epoch
-    stream.writeVint(0);
-    stream.writeVint(0); // friendly signoff count
-    stream.writeVint(0); // likes
-    stream.writeVint(0); // dislikes
-    stream.writeVint(0);
+    stream.writeVInt(0);
+    stream.writeVInt(0); // friendly signoff count
+    stream.writeVInt(0); // likes
+    stream.writeVInt(0); // dislikes
+    stream.writeVInt(0);
 
     return stream;
   }
