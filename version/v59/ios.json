@@ -35,9 +35,7 @@
     "StartGame": "0x2e18c4",
     "OperatorNew": "0xe0095c",
 
-    "SettingsScreenConstructor": "0x307494",
     "SetTextAndScaleIfNecessary": "0x326e7c",
-    "PlayerProfileGetStat": "0x41b92c",
 
     "UpdateLoadingProgress": "0x31b160",
     "GotoAndStopFrameIndex": "0xbc3ee8",
@@ -51,8 +49,6 @@
     "StringTableGetStringThunk": "0x31d050",
 
     "GetPlayerDraftMapNumLimit": "0x1e3d50",
-
-    "GetPlayerCount": "0x44f260",
 
     "WriteDataReference": "0x44e05c",
     "WriteVInt": "0xc00a9c",
@@ -70,8 +66,6 @@
     "ReadVLong": "0xc01254",
     "DecodeLogicLong": "0x44dde0",
 
-    "GlobalID": "0x20",
-    
-    "LogicDataTablesGetDataByIDThunk": "0x377180"
+    "GlobalID": "0x20"
   }
 }

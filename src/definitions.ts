@@ -81,15 +81,6 @@ export function load() {
     "pointer",
     ["pointer"],
   );
-  getDataByID = new NativeFunction(
-    base.add(
-      isAndroid
-        ? Offsets.LogicDataTablesGetDataByID
-        : Offsets.LogicDataTablesGetDataByIDThunk,
-    ),
-    "pointer",
-    ["int"],
-  );
 
   documentsDirectory = getDocumentsDirectory();
   configPath = documentsDirectory + "/config.json";
