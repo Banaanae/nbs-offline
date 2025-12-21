@@ -61,6 +61,22 @@ export class Config {
   r35brawlers = 0;
   teamExperiment = false;
   logLevel = 0;
+  enableSupercellID = false;
+  hiddenSettingsButtons: string[] = [
+    "button_faq",
+    "button_terms",
+    "button_privacy",
+    "button_parentsguide",
+    "button_thirdparty",
+    "button_api",
+    "button_random_reward_rates",
+    "button_kakao_connect",
+    "button_privact_settings",
+    "button_birthday",
+    "button_ads",
+    "button_privacy_settings",
+  ];
+  customSettings = true;
 }
 export function tryLoadDefaultConfig() {
   try {
@@ -157,6 +173,8 @@ export function readConfig() {
   }
   config.teamExperiment = json.teamExperiment || false;
   config.logLevel = json.logLevel || 0;
+  config.enableSupercellID = json.enableSupercellID || false;
+  config.customSettings = json.customSettings || true;
 
   return config;
 }
@@ -236,6 +254,8 @@ export function writeConfig(config: Config) {
 
     data.teamExperiment = config.teamExperiment;
     data.logLevel = config.logLevel;
+    data.enableSupercellID = config.enableSupercellID;
+    data.customSettings = config.customSettings;
   }
 
   const remove = new NativeFunction(libc.getExportByName("remove"), "int", [

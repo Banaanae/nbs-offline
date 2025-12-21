@@ -17,7 +17,6 @@ import {
 import { ByteStream } from "./bytestream.js";
 import { isAndroid } from "./platform.js";
 import { Logger } from "./utility/logger.js";
-import { GlobalID } from "./globalid.js";
 
 let progress: number;
 let hasLoaded = false;
@@ -207,10 +206,12 @@ export function installHooks() {
       this.str = args[0].readUtf8String();
     },
     onLeave(retval) {
+      let replacement;
       if (config.randomBotNames && this.str.startsWith("TID_BOT_")) {
         let idx = this.str.split("TID_BOT_")[1] - 1;
-        retval.replace(createStringObject(botNames[idx]));
+        replacement = botNames[idx];
       }
+      if (replacement) retval.replace(createStringObject(replacement));
     },
   });
 
@@ -224,4 +225,10 @@ export function installHooks() {
       [],
     ),
   );
+
+  Interceptor.attach(base.add(Offsets.IsSupercellIDEnabled), {
+    onLeave(retval) {
+      retval.replace(ptr(0));
+    },
+  });
 }

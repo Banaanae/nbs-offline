@@ -1,6 +1,6 @@
-# NBS Offline V59
+# NBS Offline
 
-An offline client that supports Android and iOS.
+An offline client for v59 that supports Android and iOS.
 
 ## Features
 
@@ -19,8 +19,8 @@ An offline client that supports Android and iOS.
 
 ## Credits
 
-- OwnHomeDataMessage structure by Soufgame 
-- Player profile by kubune 
-- Map maker and teams structure slightly updated from Royale Brawl 
+- OwnHomeDataMessage structure by Soufgame
+- Player profile by kubune
+- Map maker and teams structure slightly updated from Royale Brawl
 - Android asset manager by libgud
 - Offline friendly battles from SMP

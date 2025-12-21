@@ -51,6 +51,7 @@
     "highestSoloLeague": 0,
     "r35brawlers": 0
   },
+  "enableSupercellID": false,
   "events": [
     {
       "slot": 2,

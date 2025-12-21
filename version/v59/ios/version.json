@@ -66,6 +66,32 @@
     "ReadVLong": "0xc01254",
     "DecodeLogicLong": "0x44dde0",
 
-    "GlobalID": "0x20"
+    "GlobalID": 32,
+
+    "IsSupercellIDEnabled": "0x3083f8",
+
+    "SettingsScreenConstructor": "0x307494",
+    "AddGameButton": "0x9c6b8",
+    "GetX": "0xbbfccc",
+    "SetX": "0xbbfc6c",
+    "GetY": "0xbbfd20",
+    "SetY": "0xbbfc74",
+    "SetXY": "0xbbfc7c",
+    "GetWidth": "0xbc0188",
+    "SetWidth": "0xbc02c0",
+    "GetHeight": "0xbc01f8",
+    "SetHeight": "0xbc0274",
+    "GameButtonConstructor": "0x9b900",
+    "SetText": "0xbef364",
+    "GetMovieClip": "0xb88b54",
+    "InitFn": 352,
+    "StageInstance": "0x11b11f0",
+    "SpriteAddChild": "0xbd2bec",
+    "ButtonText": 96,
+    "GetTextFieldByName": "0xbc4f04",
+    "SetMultiline": "0xbef76c",
+    "AutoAdjustText": "0x32766c",
+    "GetFontSize": "0xbef71c",
+    "SetFontSize": "0xbef314"
   }
 }
