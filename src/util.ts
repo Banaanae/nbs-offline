@@ -112,15 +112,9 @@ export function decodeString(src: NativePointer): string | null {
   return src.add(8).readUtf8String(len);
 }
 
-export function strPtr(message: string) {
-  var charPtr = malloc(message.length + 1);
-  charPtr.writeUtf8String(message);
-  return charPtr;
-}
-
 export function createStringObject(text: string) {
   let ptr = malloc(128);
-  stringCtor(ptr, strPtr(text));
+  stringCtor(ptr, Memory.allocUtf8String(text));
   return ptr;
 }
 

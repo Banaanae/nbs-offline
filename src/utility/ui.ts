@@ -17,7 +17,7 @@ import {
   setWidth,
   setXY,
 } from "../definitions.js";
-import { createStringObject, strPtr } from "../util.js";
+import { createStringObject } from "../util.js";
 import { Logger } from "./logger";
 
 export class UI {
@@ -30,39 +30,40 @@ export class UI {
     scFile: string,
     item: string,
     text: string,
+    textFieldName: string,
     x: number,
     y: number,
+    width: number | undefined = undefined,
+    height: number | undefined = undefined,
     frameIndex: number | undefined = undefined,
-    width: number = 1,
-    height: number = 1,
-    multiline: boolean = true,
+    multiline: boolean = false,
     fontsize: number | undefined = undefined,
   ) {
-    try {
-      let btn = malloc(600);
-      gameButtonConstructor(btn);
-      let movieClip = getMovieClip(strPtr(scFile), strPtr(item), 1);
-      if (frameIndex) gotoAndStop(movieClip, frameIndex);
-      new NativeFunction(
-        btn.readPointer().add(Offsets.InitFn).readPointer(),
-        "void",
-        ["pointer", "pointer", "bool"],
-      )(btn, movieClip, 1);
-      let textField = getTextFieldByName(
-        btn.add(Offsets.ButtonText).readPointer(),
-        Memory.allocUtf8String("Text"),
-      );
-      setXY(btn, x, y);
-      setWidth(btn, width);
-      setHeight(btn, height);
-      setText(textField, createStringObject(text), 1);
-      setMultiline(textField, Number(multiline));
-      autoAdjustText(textField, 1, 1, 1);
-      addChild(guiContainer, btn);
-      if (fontsize) setFontSize(textField, fontsize);
-      Logger.debug("Added button", text);
-    } catch (e) {
-      Logger.error(e);
-    }
+    let btn = malloc(600);
+    gameButtonConstructor(btn);
+    let movieClip = getMovieClip(
+      Memory.allocUtf8String(scFile),
+      Memory.allocUtf8String(item),
+      1,
+    );
+    if (frameIndex) gotoAndStop(movieClip, frameIndex);
+    new NativeFunction(
+      btn.readPointer().add(Offsets.InitFn).readPointer(),
+      "void",
+      ["pointer", "pointer", "bool"],
+    )(btn, movieClip, 1);
+    let textField = getTextFieldByName(
+      btn.add(Offsets.ButtonText).readPointer(),
+      Memory.allocUtf8String(textFieldName),
+    );
+    setXY(btn, x, y);
+    if (width) setWidth(btn, width);
+    if (height) setHeight(btn, height);
+    setText(textField, createStringObject(text), 1);
+    setMultiline(textField, Number(multiline));
+    autoAdjustText(textField, 1, 1, 1);
+    addChild(guiContainer, btn);
+    if (fontsize) setFontSize(textField, fontsize);
+    Logger.debug("Added button", text);
   }
 }

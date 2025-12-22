@@ -92,6 +92,8 @@
     "SetMultiline": "0xbef76c",
     "AutoAdjustText": "0x32766c",
     "GetFontSize": "0xbef71c",
-    "SetFontSize": "0xbef314"
+    "SetFontSize": "0xbef314",
+    "HomePageConstructor": "0x2d9a30",
+    "LoadAsset": "0x8ab4"
   }
 }

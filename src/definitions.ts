@@ -54,6 +54,7 @@ export let setScaleX: any;
 export let setScaleY: any;
 export let getFontSize: any;
 export let setFontSize: any;
+export let loadAsset: any;
 
 export function load() {
   if (isAndroid) {
@@ -175,6 +176,10 @@ export function load() {
   setFontSize = new NativeFunction(base.add(Offsets.SetFontSize), "void", [
     "pointer",
     "int",
+  ]);
+  loadAsset = new NativeFunction(base.add(Offsets.LoadAsset), "bool", [
+    "pointer",
+    "bool",
   ]);
 
   documentsDirectory = getDocumentsDirectory();

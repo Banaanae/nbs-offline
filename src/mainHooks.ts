@@ -4,6 +4,7 @@ import {
   base,
   botNames,
   config,
+  loadAsset,
   setBotNames,
   setTextAndScaleIfNecessary,
 } from "./definitions.js";
@@ -17,6 +18,7 @@ import {
 import { ByteStream } from "./bytestream.js";
 import { isAndroid } from "./platform.js";
 import { Logger } from "./utility/logger.js";
+import { DebugMenu } from "./debugmenu.js";
 
 let progress: number;
 let hasLoaded = false;
@@ -229,6 +231,16 @@ export function installHooks() {
   Interceptor.attach(base.add(Offsets.IsSupercellIDEnabled), {
     onLeave(retval) {
       retval.replace(ptr(0));
+    },
+  });
+
+  Interceptor.attach(base.add(Offsets.HomePageConstructor), {
+    onLeave(guiContainer) {
+      Logger.debug(
+        "Load asset retval",
+        loadAsset(createStringObject("sc/debug.sc"), 0),
+      );
+      DebugMenu.createDebugButton(guiContainer);
     },
   });
 }

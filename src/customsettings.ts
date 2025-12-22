@@ -50,11 +50,12 @@ export function setupCustomSettings() {
         "sc/ui.sc",
         "country_item",
         "Edit config",
+        "Text",
         editConfigPos.x,
         editConfigPos.y,
-        1,
         180,
         90,
+        1,
         false,
         22,
       );
