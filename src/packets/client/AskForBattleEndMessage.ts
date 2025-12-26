@@ -1,14 +1,11 @@
-import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
-import { Config } from "../../config.js";
 import { Hero } from "../../hero.js";
 import { BattleEndData } from "../../battleenddata.js";
 import { Messaging } from "../../messaging.js";
 import { BattleEndMessage } from "../server/BattleEndMessage.js";
-import { Logger } from "../../utility/logger.js";
 
 export class AskForBattleEndMessage {
-  static decode(player: Player, stream: ByteStream): BattleEndData {
+  static decode(stream: ByteStream): BattleEndData {
     let gamemode = stream.readVint();
     let result = stream.readVint();
     let rank = stream.readVint();
@@ -16,7 +13,6 @@ export class AskForBattleEndMessage {
     let heroes: Hero[] = [];
     let heroCount = stream.readVint();
     for (let i = 0; i < heroCount; i++) {
-      // ugly ass code
       heroes.push(
         new Hero(
           stream.readDataReference(),
@@ -28,13 +24,10 @@ export class AskForBattleEndMessage {
       );
     }
 
-    Logger.debug("AskBattleEndMessage:", JSON.stringify(heroes, null, 2));
     return new BattleEndData(gamemode, result, rank, mapID, heroes);
   }
 
-  static execute(player: Player, stream: ByteStream): void {
-    let data = this.decode(player, stream);
-    Messaging.sendOfflineMessage(23456, BattleEndMessage.encode(player, data));
+  static execute(data: BattleEndData): void {
+    Messaging.sendOfflineMessage(23456, BattleEndMessage.encode(data));
   }
 }
-

@@ -12,7 +12,7 @@
     "CreateMessageByType": "0x87a818",
     "LogicLaserMessageFactory": "0xe5152e",
 
-    "GetMessageType": "0x28",
+    "GetMessageType": 40,
     "Destruct": "0x38",
     "Encode": "0x10",
     "Decode": "0x18",
@@ -20,8 +20,8 @@
     "Version": "0x88",
     "PayloadOffset": "0x14",
     "PayloadSize": "0x18",
-    "PayloadPtr": "0x38",
-    "ByteStream": "0x8",
+    "PayloadPtr": 56,
+    "ByteStream": 8,
 
     "IsDev": "0x780274",
     "IsProd": "0x78027c",

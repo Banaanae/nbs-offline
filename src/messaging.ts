@@ -24,6 +24,7 @@ import { TeamCreateMessage } from "./packets/client/teams/TeamCreateMessage.js";
 import { TeamGameStartingMessage } from "./packets/server/TeamGameStartingMessage.js";
 import { Logger } from "./utility/logger.js";
 import { LoginOkMessage } from "./packets/server/LoginOkMessage.js";
+import { AskForBattleEndMessage } from "./packets/client/AskForBattleEndMessage.js";
 
 export class Messaging {
   static sendOfflineMessage(id: number, payload: number[]): NativePointer {
@@ -79,7 +80,7 @@ export class Messaging {
       }
       // AskForBattleEndMessage
       case 14110: {
-        // todo!
+        AskForBattleEndMessage.execute(AskForBattleEndMessage.decode(stream));
         break;
       }
       // GetPlayerProfileMessage
