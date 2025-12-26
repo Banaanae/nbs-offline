@@ -5,6 +5,7 @@ import {
   createMessageByType,
   messageManagerReceiveMessage,
   operator_new,
+  version,
 } from "./definitions.js";
 import { PiranhaMessage } from "./piranhamessage.js";
 import { getMessageManagerInstance } from "./util.js";
@@ -58,7 +59,8 @@ export class Messaging {
       // ClientHelloMessage
       case 10100: {
         Messaging.sendOfflineMessage(20104, LoginOkMessage.encode());
-        Messaging.sendOfflineMessage(24101, OwnHomeDataMessage.encode());
+        if (version == 59)
+          Messaging.sendOfflineMessage(24101, OwnHomeDataMessage.encode());
         if (config.teamExperiment) {
           TeamManager.createTeam();
         }

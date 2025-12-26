@@ -1,5 +1,5 @@
 {
-  "version": 59,
+  "version": 64,
   "platform": "android",
   "offsets": {
     "ServerConnectionUpdate": "0x748518",
@@ -38,9 +38,7 @@
     "SetTextAndScaleIfNecessary": "0x8fc824",
     "UpdateLoadingProgress": "0x8ddfec",
     "GotoAndStopFrameIndex": "0xb4e0bc",
-    "LoadingText": 120,
-    "LoadingPercent": 64,
-    "LoadingAlpha": 56,
+    "LoadingText": 144,
 
     "StringTableGetString": "0x8e0620",
 
