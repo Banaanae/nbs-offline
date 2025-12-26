@@ -8,6 +8,7 @@ import {
   loadAsset,
   setBotNames,
   setTextAndScaleIfNecessary,
+  version,
 } from "./definitions.js";
 import { Messaging } from "./messaging.js";
 import {
@@ -148,12 +149,6 @@ export function installHooks() {
   });
   */
 
-  Interceptor.attach(base.add(Offsets.GetHelpfulHandState), {
-    onLeave(retval) {
-      retval.replace(ptr(-1));
-    },
-  });
-
   Interceptor.attach(base.add(Offsets.UpdateLoadingProgress), {
     onEnter(args) {
       this.textfield = args[0].add(Offsets.LoadingText).readPointer();
@@ -212,26 +207,28 @@ export function installHooks() {
     },
   });
 
-  Interceptor.attach(base.add(Offsets.HomePageConstructor), {
-    onLeave(guiContainer) {
-      Logger.debug(
-        "Load asset retval",
-        loadAsset(createStringObject("sc/debug.sc"), 0),
-      );
-      new DebugMenu(guiContainer);
-    },
-  });
+  if (version == 59) {
+    Interceptor.attach(base.add(Offsets.HomePageConstructor), {
+      onLeave(guiContainer) {
+        Logger.debug(
+          "Load asset retval",
+          loadAsset(createStringObject("sc/debug.sc"), 0),
+        );
+        new DebugMenu(guiContainer);
+      },
+    });
 
-  Interceptor.attach(base.add(Offsets.ButtonPressed), {
-    onEnter(args) {
-      const clicked = args[0];
+    Interceptor.attach(base.add(Offsets.ButtonPressed), {
+      onEnter(args) {
+        const clicked = args[0];
 
-      for (const entry of buttonHandlers) {
-        if (entry.ptr.equals(clicked)) {
-          entry.handler(clicked);
-          break;
+        for (const entry of buttonHandlers) {
+          if (entry.ptr.equals(clicked)) {
+            entry.handler(clicked);
+            break;
+          }
         }
-      }
-    },
-  });
+      },
+    });
+  }
 }

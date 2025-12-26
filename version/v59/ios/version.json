@@ -14,15 +14,15 @@
     "LogicLaserMessageFactory": "0x101891e",
 
     "GetMessageType": 40,
-    "Destruct": "0x38",
-    "Encode": "0x10",
+    "Destruct": 56,
+    "Encode": 16,
     "Decode": 24,
-    "Messaging": "0x48",
-    "Version": "0x88",
-    "PayloadOffset": "0x14",
-    "PayloadSize": "0x18",
-    "PayloadPtr": "0x38",
-    "ByteStream": "0x8",
+    "Messaging": 72,
+    "Version": 136,
+    "PayloadOffset": 20,
+    "PayloadSize": 24,
+    "PayloadPtr": 56,
+    "ByteStream": 8,
 
     "IsDev": "0x32fbe8",
     "IsProd": "0x32fbf4",
@@ -39,9 +39,9 @@
 
     "UpdateLoadingProgress": "0x31b160",
     "GotoAndStopFrameIndex": "0xbc3ee8",
-    "LoadingText": "0x78",
-    "LoadingPercent": "0x40",
-    "LoadingAlpha": "0x38",
+    "LoadingText": 120,
+    "LoadingPercent": 64,
+    "LoadingAlpha": 56,
 
     "GetHelpfulHandState": "0x2f1cc0",
 

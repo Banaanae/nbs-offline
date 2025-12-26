@@ -3,8 +3,8 @@
   "platform": "android",
   "offsets": {
     "ServerConnectionUpdate": "0x60fda8",
-    "HasConnectFailed": "0x8",
-    "State": "0x18",
+    "HasConnectFailed": 8,
+    "State": 24,
     "MessageManagerInstance": "0xf2ed50",
     "MessageManagerReceiveMessage": "0x604eac",
     "SendMessage": "0x604cd8",
@@ -13,13 +13,13 @@
     "LogicLaserMessageFactory": "0xe5152e",
 
     "GetMessageType": 40,
-    "Destruct": "0x38",
-    "Encode": "0x10",
-    "Decode": "0x18",
-    "Messaging": "0x48",
-    "Version": "0x88",
-    "PayloadOffset": "0x14",
-    "PayloadSize": "0x18",
+    "Destruct": 56,
+    "Encode": 16,
+    "Decode": 24,
+    "Messaging": 72,
+    "Version": 136,
+    "PayloadOffset": 20,
+    "PayloadSize": 24,
     "PayloadPtr": 56,
     "ByteStream": 8,
 
@@ -37,13 +37,11 @@
 
     "SettingsScreenConstructor": "0x751588",
     "SetTextAndScaleIfNecessary": "0x776bf0",
-    "PlayerProfileGetStat": "0x8be868",
-
     "UpdateLoadingProgress": "0x768438",
     "GotoAndStopFrameIndex": "0x951044",
-    "LoadingText": "0x78",
-    "LoadingPercent": "0x40",
-    "LoadingAlpha": "0x38",
+    "LoadingText": 120,
+    "LoadingPercent": 64,
+    "LoadingAlpha": 56,
 
     "GetHelpfulHandState": "0x7386cc",
 
@@ -53,10 +51,8 @@
 
     "GetPlayerCount": "0x912b14",
 
-    "GlobalID": "0x20",
+    "GlobalID": 32,
     
-    "LogicDataTablesGetDataByID": "0x7df1f4",
-
     "WriteDataReference": "0x91185c",
     "WriteVInt": "0x98e210",
     "WriteInt": "0x98d8bc",

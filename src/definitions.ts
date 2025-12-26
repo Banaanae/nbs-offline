@@ -118,93 +118,95 @@ export function load() {
     "pointer",
     ["pointer"],
   );
-  setText = new NativeFunction(base.add(Offsets.SetText), "int64", [
-    "pointer",
-    "pointer",
-  ]);
-  getMovieClip = new NativeFunction(base.add(Offsets.GetMovieClip), "pointer", [
-    "pointer",
-    "pointer",
-    "bool",
-  ]);
-  gameButtonConstructor = new NativeFunction(
-    base.add(Offsets.GameButtonConstructor),
-    "void",
-    ["pointer"],
-  );
-  addChild = new NativeFunction(base.add(Offsets.SpriteAddChild), "void", [
-    "pointer",
-    "pointer",
-  ]);
-  gotoAndStop = new NativeFunction(
-    base.add(Offsets.GotoAndStopFrameIndex),
-    "void",
-    ["pointer", "int"],
-  );
-  getTextFieldByName = new NativeFunction(
-    base.add(Offsets.GetTextFieldByName),
-    "pointer",
-    ["pointer", "pointer"],
-  );
-  getX = new NativeFunction(base.add(Offsets.GetX), "float", ["pointer"]);
-  setX = new NativeFunction(base.add(Offsets.SetX), "void", [
-    "pointer",
-    "float",
-  ]);
-  getY = new NativeFunction(base.add(Offsets.GetY), "float", ["pointer"]);
-  setY = new NativeFunction(base.add(Offsets.SetY), "void", [
-    "pointer",
-    "float",
-  ]);
-  setXY = new NativeFunction(base.add(Offsets.SetXY), "void", [
-    "pointer",
-    "float",
-    "float",
-  ]);
-  getWidth = new NativeFunction(base.add(Offsets.GetWidth), "float", [
-    "pointer",
-  ]);
-  setWidth = new NativeFunction(base.add(Offsets.SetWidth), "void", [
-    "pointer",
-    "float",
-  ]);
-  getHeight = new NativeFunction(base.add(Offsets.GetHeight), "float", [
-    "pointer",
-  ]);
-  setHeight = new NativeFunction(base.add(Offsets.SetHeight), "void", [
-    "pointer",
-    "float",
-  ]);
-  setMultiline = new NativeFunction(base.add(Offsets.SetMultiline), "void", [
-    "pointer",
-    "bool",
-  ]);
-  autoAdjustText = new NativeFunction(
-    base.add(Offsets.AutoAdjustText),
-    "void",
-    ["pointer", "int", "int", "int"],
-  );
-  getFontSize = new NativeFunction(base.add(Offsets.GetFontSize), "int", [
-    "pointer",
-  ]);
-  setFontSize = new NativeFunction(base.add(Offsets.SetFontSize), "void", [
-    "pointer",
-    "int",
-  ]);
-  loadAsset = new NativeFunction(base.add(Offsets.LoadAsset), "bool", [
-    "pointer",
-    "bool",
-  ]);
-  setVerticallyCentered = new NativeFunction(
-    base.add(Offsets.SetTextFieldVerticallyCentered),
-    "void",
-    ["pointer"],
-  );
-  showFloaterText = new NativeFunction(
-    base.add(Offsets.ShowFloaterTextAtDefaultPos),
-    "pointer",
-    ["pointer", "pointer", "int64", "float"],
-  );
+  if (version == 59) {
+    setText = new NativeFunction(base.add(Offsets.SetText), "int64", [
+      "pointer",
+      "pointer",
+    ]);
+    getMovieClip = new NativeFunction(
+      base.add(Offsets.GetMovieClip),
+      "pointer",
+      ["pointer", "pointer", "bool"],
+    );
+    gameButtonConstructor = new NativeFunction(
+      base.add(Offsets.GameButtonConstructor),
+      "void",
+      ["pointer"],
+    );
+    addChild = new NativeFunction(base.add(Offsets.SpriteAddChild), "void", [
+      "pointer",
+      "pointer",
+    ]);
+    gotoAndStop = new NativeFunction(
+      base.add(Offsets.GotoAndStopFrameIndex),
+      "void",
+      ["pointer", "int"],
+    );
+    getTextFieldByName = new NativeFunction(
+      base.add(Offsets.GetTextFieldByName),
+      "pointer",
+      ["pointer", "pointer"],
+    );
+    getX = new NativeFunction(base.add(Offsets.GetX), "float", ["pointer"]);
+    setX = new NativeFunction(base.add(Offsets.SetX), "void", [
+      "pointer",
+      "float",
+    ]);
+    getY = new NativeFunction(base.add(Offsets.GetY), "float", ["pointer"]);
+    setY = new NativeFunction(base.add(Offsets.SetY), "void", [
+      "pointer",
+      "float",
+    ]);
+    setXY = new NativeFunction(base.add(Offsets.SetXY), "void", [
+      "pointer",
+      "float",
+      "float",
+    ]);
+    getWidth = new NativeFunction(base.add(Offsets.GetWidth), "float", [
+      "pointer",
+    ]);
+    setWidth = new NativeFunction(base.add(Offsets.SetWidth), "void", [
+      "pointer",
+      "float",
+    ]);
+    getHeight = new NativeFunction(base.add(Offsets.GetHeight), "float", [
+      "pointer",
+    ]);
+    setHeight = new NativeFunction(base.add(Offsets.SetHeight), "void", [
+      "pointer",
+      "float",
+    ]);
+    setMultiline = new NativeFunction(base.add(Offsets.SetMultiline), "void", [
+      "pointer",
+      "bool",
+    ]);
+    autoAdjustText = new NativeFunction(
+      base.add(Offsets.AutoAdjustText),
+      "void",
+      ["pointer", "int", "int", "int"],
+    );
+    getFontSize = new NativeFunction(base.add(Offsets.GetFontSize), "int", [
+      "pointer",
+    ]);
+    setFontSize = new NativeFunction(base.add(Offsets.SetFontSize), "void", [
+      "pointer",
+      "int",
+    ]);
+    loadAsset = new NativeFunction(base.add(Offsets.LoadAsset), "bool", [
+      "pointer",
+      "bool",
+    ]);
+    setVerticallyCentered = new NativeFunction(
+      base.add(Offsets.SetTextFieldVerticallyCentered),
+      "void",
+      ["pointer"],
+    );
+    showFloaterText = new NativeFunction(
+      base.add(Offsets.ShowFloaterTextAtDefaultPos),
+      "pointer",
+      ["pointer", "pointer", "int64", "float"],
+    );
+  }
 }
 
 export function setBase(ptr: NativePointer) {
