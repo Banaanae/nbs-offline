@@ -26,19 +26,6 @@ let hasLoaded = false;
 let firstTime = false;
 
 export function installHooks() {
-  /*
-  Interceptor.replace(
-    base.add(0x7551c0),
-    new NativeCallback(function () {}, "void", []),
-  );
-  */
-
-  Interceptor.attach(base.add(0x3b44f8), {
-    onLeave(retval) {
-      retval.replace(ptr(0));
-    },
-  });
-
   Interceptor.attach(base.add(Offsets.DebuggerError), {
     onEnter(args) {
       Logger.error(args[0].readCString());
@@ -53,11 +40,6 @@ export function installHooks() {
 
   Interceptor.attach(base.add(Offsets.ServerConnectionUpdate), {
     onEnter: function (args) {
-      if (args[0].readS32() == 0 && hasLoaded && firstTime) {
-        Logger.debug("Resuming from updater"); // TODO: rework this trash
-        args[0].writeS32(1);
-        firstTime = false;
-      }
       args[0]
         .add(Process.pointerSize)
         .readPointer()
