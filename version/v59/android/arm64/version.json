@@ -45,11 +45,6 @@
     "LoadingPercent": "0x40",
     "LoadingAlpha": "0x38",
 
-    "InitStateUpdateLoading": "0x764e28",
-    "DownloadManagerInstance": "0xf2ed18",
-    "UpdateChronosResources": "0x64cf5c",
-    "Unk1": "0xa0",
-
     "GetHelpfulHandState": "0x7386cc",
 
     "StringTableGetString": "0x76a5e4",

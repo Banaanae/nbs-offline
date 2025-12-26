@@ -23,7 +23,6 @@ import { DebugMenu } from "./debugmenu/debugmenu.js";
 
 let progress: number;
 let hasLoaded = false;
-let firstTime = false;
 
 export function installHooks() {
   Interceptor.attach(base.add(Offsets.DebuggerError), {
