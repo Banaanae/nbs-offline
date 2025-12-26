@@ -18,6 +18,7 @@ import {
   setXY,
 } from "../definitions.js";
 import { createStringObject } from "../util.js";
+import { Logger } from "./logger";
 
 export class ButtonHelper {
   static hideButton(displayObject: NativePointer) {

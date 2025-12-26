@@ -23,7 +23,7 @@ import { DeletePlayerMapMessage } from "./packets/client/mapmaker/DeletePlayerMa
 import { TeamCreateMessage } from "./packets/client/teams/TeamCreateMessage.js";
 import { TeamGameStartingMessage } from "./packets/server/TeamGameStartingMessage.js";
 import { Logger } from "./utility/logger.js";
-import { decode } from "punycode";
+import { LoginOkMessage } from "./packets/server/LoginOkMessage.js";
 
 export class Messaging {
   static sendOfflineMessage(id: number, payload: number[]): NativePointer {
@@ -47,14 +47,7 @@ export class Messaging {
     let decode = new NativeFunction(decodeOffset, "void", ["pointer"]);
     decode(message);
     Logger.debug("Message decoded succesfully");
-    if (version == 1) {
-      // login ok
-      try {
-        messageManagerReceiveMessage(getMessageManagerInstance(), message);
-      } catch (e) {}
-    } else {
-      messageManagerReceiveMessage(getMessageManagerInstance(), message);
-    }
+    messageManagerReceiveMessage(getMessageManagerInstance(), message);
     Logger.debug("Message received");
     return message;
   }
@@ -63,7 +56,7 @@ export class Messaging {
     switch (id) {
       // ClientHelloMessage
       case 10100: {
-        Messaging.sendOfflineMessage(20104, []);
+        Messaging.sendOfflineMessage(20104, LoginOkMessage.encode());
         Messaging.sendOfflineMessage(24101, OwnHomeDataMessage.encode());
         if (config.teamExperiment) {
           TeamManager.createTeam();

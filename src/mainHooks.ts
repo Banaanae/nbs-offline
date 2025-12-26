@@ -26,6 +26,19 @@ let hasLoaded = false;
 let firstTime = false;
 
 export function installHooks() {
+  /*
+  Interceptor.replace(
+    base.add(0x7551c0),
+    new NativeCallback(function () {}, "void", []),
+  );
+  */
+
+  Interceptor.attach(base.add(0x3b44f8), {
+    onLeave(retval) {
+      retval.replace(ptr(0));
+    },
+  });
+
   Interceptor.attach(base.add(Offsets.DebuggerError), {
     onEnter(args) {
       Logger.error(args[0].readCString());
@@ -186,23 +199,6 @@ export function installHooks() {
       }
     },
   });
-
-  // TODO: Remove this
-  if (isAndroid && Process.arch == "arm64") {
-    Interceptor.attach(base.add(Offsets.InitStateUpdateLoading), {
-      onEnter() {
-        const dlmgrinst = base
-          .add(Offsets.DownloadManagerInstance)
-          .readPointer();
-        dlmgrinst.add(Offsets.Unk1).writeS32(6);
-      },
-    });
-
-    Interceptor.replace(
-      base.add(Offsets.UpdateChronosResources),
-      new NativeCallback(function () {}, "void", []),
-    );
-  }
 
   Interceptor.attach(base.add(Offsets.StringTableGetString), {
     onEnter(args) {

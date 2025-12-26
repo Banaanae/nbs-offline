@@ -1,10 +1,19 @@
 import { createAssetManager } from "./utility/assetmanagerandroid.js";
-import { base, config, load, player, setBase, version } from "./definitions.js";
+import {
+  base,
+  config,
+  load,
+  loadAsset,
+  player,
+  setBase,
+  version,
+} from "./definitions.js";
 import { installHooks } from "./mainHooks.js";
 import { isAndroid } from "./platform.js";
 import { Logger } from "./utility/logger.js";
 import { Dumper } from "./utility/dump.js";
 import { setupCustomSettings } from "./customsettings.js";
+import { createStringObject } from "./util.js";
 
 (async () => {
   if (isAndroid) await createAssetManager();
@@ -22,8 +31,4 @@ import { setupCustomSettings } from "./customsettings.js";
   }
   installHooks();
   if (version == 59 && config.customSettings) setupCustomSettings();
-  if (!isAndroid) {
-    let dumper = new Dumper(true);
-    dumper.dump("playerprofile", 0x41ba64);
-  }
 })();
