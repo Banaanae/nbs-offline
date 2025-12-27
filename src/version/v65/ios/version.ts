@@ -1,5 +1,5 @@
-export const raw = {
-  "version": 65,
+export const version = {
+  "gmv": 65,
   "platform": "iOS",
   "offsets": {
     "ServerConnectionUpdate": "0x24f46c",
