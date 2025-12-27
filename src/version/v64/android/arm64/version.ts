@@ -1,5 +1,5 @@
-export const raw = {
-  "version": 64,
+export const version = {
+  "gmv": 64,
   "platform": "android",
   "offsets": {
     "ServerConnectionUpdate": "0x748518",
