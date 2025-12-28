@@ -168,12 +168,6 @@ export function installHooks() {
     },
   });
 
-  Interceptor.attach(base.add(0x9178b0), {
-    onLeave(retval) {
-      console.log(retval.toInt32());
-    },
-  });
-
   Interceptor.attach(base.add(Offsets.StringTableGetString), {
     onEnter(args) {
       this.str = args[0].readUtf8String();

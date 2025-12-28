@@ -24,8 +24,8 @@ export class OwnHomeDataMessage {
 
     stream.writeDataReference(28, player.thumbnail);
     stream.writeDataReference(43, player.namecolor);
-    stream.writeVInt(26);
-    for (let i = 0; i < 26; i++) stream.writeVInt(i);
+    stream.writeVInt(38);
+    for (let i = 0; i < 38; i++) stream.writeVInt(i);
 
     stream.writeVInt(0); // selected skins
     stream.writeVInt(0);
@@ -576,8 +576,6 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0);
     stream.writeVInt(0);
     stream.writeVInt(0);
-    if (version >= 63) stream.writeVInt(0);
-    if (version >= 64) stream.writeVInt(0);
     stream.writeString("");
     stream.writeVInt(0);
     stream.writeVInt(0);
