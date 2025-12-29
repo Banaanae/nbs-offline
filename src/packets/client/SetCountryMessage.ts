@@ -1,6 +1,6 @@
 import { ByteStream } from "../../bytestream.js";
 import { Messaging } from "../../messaging.js";
-import { config, player } from "../../definitions.js";
+import { config } from "../../definitions.js";
 import { writeConfig } from "../../config.js";
 import { Logger } from "../../utility/logger.js";
 import { Long } from "src/long.js";

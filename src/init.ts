@@ -4,7 +4,6 @@ import {
   config,
   load,
   loadAsset,
-  player,
   setBase,
   version,
 } from "./definitions.js";
@@ -23,10 +22,10 @@ import { createStringObject } from "./util.js";
   load();
   Logger.info("Running on", isAndroid ? "Android" : "iOS");
   Logger.verbose(`${library} loaded at: ${base}`);
-  for (const brawlerKey in player.ownedBrawlers) {
-    const brawler = player.ownedBrawlers[brawlerKey];
+  for (const brawlerKey in config.ownedBrawlers) {
+    const brawler = config.ownedBrawlers[brawlerKey];
     for (const skin of brawler.skins) {
-      player.ownedSkins.push(skin);
+      config.ownedSkins.push(skin);
     }
   }
   installHooks();

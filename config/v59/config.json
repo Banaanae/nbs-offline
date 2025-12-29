@@ -6,6 +6,7 @@
   "supportedCreator": "Natesworks",
   "coins": 0,
   "gems": 0,
+  "bling": 0,
   "starpoints": 0,
   "level": 0,
   "experience": 0,
@@ -1510,5 +1511,8 @@
       "state": 2,
       "masteryPoints": 0
     }
-  }
+  },
+  "ownedPins": [],
+  "ownedSkins": [],
+  "ownedThumbnails": [0]
 }

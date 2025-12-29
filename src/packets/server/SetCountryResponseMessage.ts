@@ -1,6 +1,5 @@
-import { config, player } from "../../definitions.js";
+import { config } from "../../definitions.js";
 import { ByteStream } from "../../bytestream.js";
-import { Player } from "../../player.js";
 import { Long } from "src/long.js";
 
 export class SetCountryResponseMessage {
