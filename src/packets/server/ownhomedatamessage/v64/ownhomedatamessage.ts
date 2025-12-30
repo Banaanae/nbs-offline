@@ -424,7 +424,6 @@ export class OwnHomeDataMessage {
     stream.writeBoolean(false);
     stream.writeBoolean(false);
 
-
     stream.writeVInt(0); // brawler battle cards
 
     // random reward manager
@@ -558,13 +557,14 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0);
     stream.writeVInt(0);
 
+    // winstreak for each brawler
     stream.writeVInt(Object.keys(player.ownedBrawlers).length);
     for (const [brawlerID, brawlerData] of Object.entries(
       player.ownedBrawlers,
     )) {
       stream.writeDataReference(16, Number(brawlerID));
       stream.writeVInt(-1);
-      stream.writeVInt(0);
+      stream.writeVInt(brawlerData.winstreak);
     }
 
     stream.writeVInt(0);
