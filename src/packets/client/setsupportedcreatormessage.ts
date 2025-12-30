@@ -18,18 +18,30 @@ export class SetSupportedCreatorMessage {
     } else {
       Logger.debug("New CCC:", ccc);
     }
+
+    let creatorCodes = config.creatorCodes.map((v) => v.toLowerCase());
+    let cccLower = ccc.toLowerCase();
+
     if (
       ccc != "" &&
       !config.allCreatorCodesValid &&
-      !config.creatorCodes.includes(ccc)
+      !creatorCodes.includes(cccLower)
     ) {
       return Messaging.sendOfflineMessage(
         28686,
         SetSupportedCreatorResponseMessage.encode(),
       );
     }
-    config.supportedCreator = ccc;
+
+    if (ccc != "") {
+      let correctCaseIndex = creatorCodes.indexOf(cccLower);
+      config.supportedCreator = config.creatorCodes[correctCaseIndex];
+    } else {
+      config.supportedCreator = "";
+    }
+
     writeConfig(config);
+
     Messaging.sendOfflineMessage(
       24111,
       LogicSetSupportedCreatorCommand.encode(),
