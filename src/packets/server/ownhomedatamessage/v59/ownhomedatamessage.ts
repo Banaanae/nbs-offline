@@ -55,7 +55,6 @@ export class OwnHomeDataMessage {
     stream.writeVInt(2);
     stream.writeVInt(0); // change name cost
     stream.writeVInt(0); // timer for next name change
-    if (version >= 63) stream.writeVInt(0); // new vint idk when it was added
 
     stream.writeVInt(0); // shop offers
     stream.writeVInt(0); // quests battle xp
@@ -165,31 +164,11 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0);
     stream.writeDataReference(16, player.favouriteBrawler);
     stream.writeBoolean(false); // LogicRewards
-    if (version == 59) {
-      stream.writeVInt(0);
-      stream.writeVInt(0);
-      stream.writeVInt(0);
-      stream.writeVInt(0);
-      stream.writeVInt(0);
-    } else {
-      stream.writeVInt(-1);
-      stream.writeVInt(0);
-      stream.writeVInt(832099);
-      stream.writeVInt(1616899);
-      stream.writeVInt(10659101);
-      stream.writeVInt(0);
-      stream.writeVInt(0); // arr
-      stream.writeVInt(0); // arr
-      stream.writeDataReference(52, 462);
-      stream.writeDataReference(12, 460);
-      stream.writeDataReference(68, 464);
-      stream.writeDataReference(92, 466);
-      stream.writeBoolean(false);
-      stream.writeDataReference(93, 473);
-      stream.writeVInt(0);
-      stream.writeBoolean(false);
-      stream.writeBoolean(false);
-    }
+    stream.writeVInt(0);
+    stream.writeVInt(0);
+    stream.writeVInt(0);
+    stream.writeVInt(0);
+    stream.writeVInt(0);
 
     // daily data end
     // conf data
@@ -211,13 +190,8 @@ export class OwnHomeDataMessage {
       stream.writeVInt(0);
       stream.writeVInt(10);
       stream.writeDataReference(15, event.mapID);
-      if (version >= 64) {
-        stream.writeDataReference(48, 6);
-        stream.writeVInt(0);
-      } else {
-        stream.writeVInt(-1);
-        stream.writeVInt(2); // MapStatus
-      }
+      stream.writeVInt(-1);
+      stream.writeVInt(2); // MapStatus
 
       stream.writeString("");
       stream.writeVInt(0);
@@ -236,7 +210,6 @@ export class OwnHomeDataMessage {
       stream.writeVInt(0); // wins
       stream.writeVInt(6);
       stream.writeBoolean(false); // MapMaker map structure array
-      if (version >= 63) stream.writeBoolean(false);
       stream.writeVInt(0);
       stream.writeBoolean(false); // Power League array entry
       stream.writeVInt(0);
@@ -267,12 +240,9 @@ export class OwnHomeDataMessage {
         stream.writeBoolean(false);
       }
 
-      if (version == 59) {
-        stream.writeVInt(1);
-        stream.writeVInt(6);
-      } else {
-        stream.writeVInt(-1);
-      }
+      stream.writeVInt(1);
+      stream.writeVInt(6);
+
       if (
         [20, 21, 22, 23, 24, 35, 36].includes(event.slot) &&
         event.championShipInfo
@@ -293,17 +263,9 @@ export class OwnHomeDataMessage {
       stream.writeBoolean(false);
       stream.writeBoolean(false);
       stream.writeBoolean(false);
-      if (version >= 63) {
-        stream.writeBoolean(false);
-        stream.writeBoolean(false);
-      }
-      if (version >= 64) {
-        stream.writeBoolean(false);
-      }
     }
 
     stream.writeVInt(0); // event data
-    if (version >= 62) stream.writeVInt(0); // event data
 
     const brawlerUpgradeCost = [
       20, 35, 75, 140, 290, 480, 800, 1250, 1875, 2800,
@@ -339,10 +301,8 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0); // timed int value entry
     stream.writeVInt(0); // ad
     stream.writeVInt(0); // theme override entry
-    if (version >= 64) stream.writeVInt(0); // fortune cookie
 
     // event asset list
-    if (version == 59) {
       stream.writeVInt(1); // array
       stream.writeVInt(1);
       stream.writeBoolean(true);
@@ -355,9 +315,6 @@ export class OwnHomeDataMessage {
       stream.writeVInt(0);
       stream.writeVInt(0);
       stream.writeVInt(0);
-    } else {
-      stream.writeVInt(0);
-    }
 
     stream.writeVInt(0); // join club event entry
     stream.writeVInt(0); // daily fortune cookie
@@ -366,12 +323,6 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0);
     stream.writeVInt(0);
     stream.writeVInt(0);
-    if (version >= 64) {
-      stream.writeVInt(0);
-      stream.writeVInt(0);
-      stream.writeVInt(0);
-      stream.writeVInt(0);
-    }
 
     // logicconfdata end
 
@@ -391,11 +342,9 @@ export class OwnHomeDataMessage {
     stream.writeBoolean(false);
     stream.writeBoolean(false);
     stream.writeBoolean(false);
-    if (version >= 63) stream.writeBoolean(false);
 
     stream.writeVInt(0); // gears
 
-    if (false) {
       stream.writeBoolean(true); // starr road
       stream.writeVInt(0); // arr
       stream.writeVInt(0); // arr
@@ -411,9 +360,6 @@ export class OwnHomeDataMessage {
       stream.writeVInt(0);
       stream.writeVInt(0);
       stream.writeVInt(0);
-    } else {
-      stream.writeBoolean(false);
-    }
 
     // mastery
     stream.writeVInt(Object.keys(player.ownedBrawlers).length);
@@ -431,16 +377,10 @@ export class OwnHomeDataMessage {
     stream.writeDataReference(28, -1); // Icon 2
     stream.writeDataReference(52, -1); // Pin
     stream.writeDataReference(76, -1); // Title
-    if (version >= 63) {
-      stream.writeVInt(0);
-    }
     stream.writeBoolean(false);
     stream.writeBoolean(false);
     stream.writeBoolean(false);
     stream.writeBoolean(false);
-    if (version >= 63) {
-      stream.writeBoolean(false);
-    }
 
     stream.writeVInt(0); // brawler battle cards
 
@@ -453,7 +393,6 @@ export class OwnHomeDataMessage {
     }
     stream.writeVInt(0); // arr
     stream.writeInt(-1435281534);
-    if (version >= 64) stream.writeBoolean(false);
     stream.writeVInt(0); // progression step in battles
     stream.writeVInt(0);
     stream.writeVInt(86400 * 24);
@@ -464,22 +403,12 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0); // arr
     stream.writeVInt(0);
     stream.writeBoolean(false);
-    if (version >= 64) stream.writeVInt(0);
 
     stream.writeBoolean(false); // piggy
     stream.writeBoolean(false); // collab event data
     stream.writeBoolean(false); // special eent data
     stream.writeVInt(0); // last seen states from friendlist
     stream.writeBoolean(false); // contest event data
-    if (version >= 63) {
-      stream.writeBoolean(false); // records
-      stream.writeBoolean(false);
-      stream.writeBoolean(false);
-      stream.writeVInt(0); // special event data arr
-    }
-    if (version >= 64) {
-      stream.writeVInt(0);
-    }
 
     // end LogicClientHome
     // LogicClientAvatar
@@ -578,11 +507,6 @@ export class OwnHomeDataMessage {
     stream.writeString("");
     stream.writeVInt(0);
     stream.writeVInt(0);
-    if (version >= 63) {
-      stream.writeVInt(0);
-      if (version >= 64) stream.writeVInt(0);
-      stream.writeBoolean(false);
-    }
 
     return stream.payload;
   }
