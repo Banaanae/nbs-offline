@@ -1,4 +1,5 @@
-import { ByteStream } from "./bytestream.js";
+import { ByteStream } from "./bytestream";
+import { version } from "version";
 
 export class PlayerDisplayData {
   name = "Natesworks";
@@ -17,6 +18,11 @@ export class PlayerDisplayData {
     stream.writeVInt(28000000 + this.thumbnail);
     stream.writeVInt(43000000 + this.namecolor);
     stream.writeVInt(43000000 + this.namecolor); // haspremiumpass == + player.namecolor
+    if (version.gmv == 64) {
+      stream.writeBoolean(false);
+      stream.writeVInt(0);
+      stream.writeVInt(0);
+    }
     return stream;
   }
 }
