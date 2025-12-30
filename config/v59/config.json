@@ -1,6 +1,9 @@
 {
-  "id": [0, 1],
-  "tutorial": true,
+  "id": [
+    0,
+    1
+  ],
+  "tutorial": false,
   "registered": false,
   "name": "Natesworks",
   "supportedCreator": "Natesworks",
