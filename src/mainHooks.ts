@@ -79,6 +79,7 @@ export function installHooks() {
   Interceptor.attach(base.add(Offsets.StartGame), {
     onEnter: function (args) {
       args[3] = ptr(3);
+      args[8] = ptr(0);
       if (config.randomBotNames) {
         this.h = Interceptor.attach(base.add(Offsets.GetPlayerCount), {
           onLeave(retval) {

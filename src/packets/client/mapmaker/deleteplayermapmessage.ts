@@ -1,11 +1,11 @@
 import { ByteStream } from "../../../bytestream.js";
 import { Messaging } from "../../../messaging.js";
 import { Long } from "../../../long.js";
-import { DeletePlayerMapResponseMessage } from "../../server/mapmaker/DeletePlayerMapResponseMessage.js";
+import { DeletePlayerMapResponseMessage } from "../../server/mapmaker/deleteplayermapresponsemessage.js";
 
 export class DeletePlayerMapMessage {
   static decode(stream: ByteStream): Long {
-    let id = stream.readVlongAsLong(); // map id
+    let id = stream.readVLongAsLong(); // map id
     return id;
   }
 

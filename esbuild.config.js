@@ -23,9 +23,16 @@ esbuild.build({
           return {
             path: path.resolve(__dirname, `src/version/v${gmv}/${devicePath}/version.ts`),
             namespace: 'file'
-          };
-        });
+          }
+        })
+
+        build.onResolve({ filter: /^OwnHomeDataMessage$/ }, args => {
+          return {
+            path: path.resolve(__dirname, `src/packets/server/ownhomedatamessage/v${gmv}/ownhomedatamessage.ts`),
+            namespace: 'file'
+          }
+        })
       }
     }
   ]
-}).catch(() => process.exit(1));
+}).catch(() => process.exit(1))

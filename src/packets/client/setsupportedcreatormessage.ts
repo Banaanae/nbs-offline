@@ -2,8 +2,8 @@ import { ByteStream } from "../../bytestream.js";
 import { Messaging } from "../../messaging.js";
 import { config } from "../../definitions.js";
 import { writeConfig } from "../../config.js";
-import { SetSupportedCreatorResponseMessage } from "../server/SetSupportedCreatorResponseMessage.js";
-import { LogicSetSupportedCreatorCommand } from "../../commands/server/LogicSetSupportedCreatorCommand.js";
+import { SetSupportedCreatorResponseMessage } from "../server/setsupportedcreatorresponsemessage.js";
+import { LogicSetSupportedCreatorCommand } from "../../commands/server/logicsetsupportedcreatorcommand.js";
 import { Logger } from "../../utility/logger.js";
 
 export class SetSupportedCreatorMessage {

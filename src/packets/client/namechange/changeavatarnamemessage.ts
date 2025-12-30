@@ -1,6 +1,6 @@
 import { ByteStream } from "../../../bytestream.js";
 import { Messaging } from "../../../messaging.js";
-import { LogicChangeAvatarNameCommand } from "../../../commands/server/LogicChangeAvatarNameCommand.js";
+import { LogicChangeAvatarNameCommand } from "../../../commands/server/logicchangeavatarnamecommand.js";
 import { config, player } from "../../../definitions.js";
 import { writeConfig } from "../../../config.js";
 import { Logger } from "../../../utility/logger.js";
