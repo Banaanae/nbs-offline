@@ -206,7 +206,7 @@ export function installHooks() {
           "Load asset retval",
           loadAsset(createStringObject("sc/debug.sc"), 0),
         );
-        // new DebugMenu(guiContainer);
+        new DebugMenu(guiContainer);
       },
     });
 
