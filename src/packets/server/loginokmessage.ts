@@ -1,4 +1,3 @@
-import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
 
 export class LoginOkMessage {

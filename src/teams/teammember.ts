@@ -1,5 +1,4 @@
 import { PlayerDisplayData } from "../playerdisplaydata.js";
-import { Player } from "../player.js";
 import { ByteStream } from "../bytestream.js";
 import { config } from "../definitions.js";
 

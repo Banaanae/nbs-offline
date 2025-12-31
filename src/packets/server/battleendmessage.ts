@@ -1,4 +1,3 @@
-import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
 import { Config } from "../../config.js";
 import { BattleEndData } from "../../battleenddata.js";

@@ -1,4 +1,3 @@
-import { Player } from "../../player.js";
 import { ByteStream } from "../../bytestream.js";
 import { CommandHandler } from "../../commandhandler.js";
 import { Logger } from "../../utility/logger.js";
