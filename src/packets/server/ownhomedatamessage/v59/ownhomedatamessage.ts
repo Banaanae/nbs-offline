@@ -1,7 +1,7 @@
-import { ByteStream } from "../../bytestream.js";
-import { config, version } from "../../definitions.js";
-import { Logger } from "../../../../utility/logger.js";
-import { calculateHighestTrophies, calculateTrophies } from "../../util.js";
+import { ByteStream } from "src/bytestream.js";
+import { config, version } from "src/definitions.js";
+import { Logger } from "src/utility/logger.js";
+import { calculateHighestTrophies, calculateTrophies } from "src/util.js";
 
 export class OwnHomeDataMessage {
   static encode(): number[] {

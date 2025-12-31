@@ -1,6 +1,7 @@
-import { ByteStream } from "../../../../bytestream.js";
-import { config, player } from "../../../../definitions.js";
-import { Logger } from "../../../../utility/logger.js";
+import { ByteStream } from "src/bytestream.js";
+import { config, version } from "src/definitions.js";
+import { Logger } from "src/utility/logger.js";
+import { calculateHighestTrophies, calculateTrophies } from "src/util.js";
 
 export class OwnHomeDataMessage {
   static encode(): number[] {
@@ -15,14 +16,14 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0);
     stream.writeVInt(0);
 
-    stream.writeVInt(player.trophies);
-    stream.writeVInt(player.highestTrophies);
-    stream.writeVInt(player.highestTrophies);
-    stream.writeVInt(player.trophyRoadTier);
-    stream.writeVInt(player.xp);
+    stream.writeVInt(calculateTrophies(config.ownedBrawlers));
+    stream.writeVInt(calculateHighestTrophies(config.ownedBrawlers));
+    stream.writeVInt(calculateHighestTrophies(config.ownedBrawlers));
+    stream.writeVInt(config.trophyRoadTier);
+    stream.writeVInt(config.experience);
 
-    stream.writeDataReference(28, player.thumbnail);
-    stream.writeDataReference(43, player.namecolor);
+    stream.writeDataReference(28, config.thumbnail);
+    stream.writeDataReference(43, config.namecolor);
 
     stream.writeVInt(38);
     for (let i = 0; i < 38; i++) stream.writeVInt(i);
@@ -30,16 +31,16 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0); // selected skins
     stream.writeVInt(0);
     stream.writeVInt(0);
-    stream.writeVInt(player.ownedSkins.length);
-    player.ownedSkins.forEach((x) => stream.writeDataReference(29, x));
+    stream.writeVInt(config.ownedSkins.length);
+    config.ownedSkins.forEach((x) => stream.writeDataReference(29, x));
     stream.writeVInt(0);
     stream.writeVInt(0);
     stream.writeVInt(0);
-    stream.writeVInt(player.highestTrophies);
+    stream.writeVInt(calculateHighestTrophies(config.ownedBrawlers));
     stream.writeVInt(0); // tokens used in battles
     stream.writeVInt(2); // control mode
     stream.writeBoolean(false); // battle hints
-    stream.writeVInt(player.tokenDoublers);
+    stream.writeVInt(config.tokenDoublers);
     // bp season timer
     stream.writeVInt(0);
     stream.writeVInt(0);
@@ -68,8 +69,8 @@ export class OwnHomeDataMessage {
     stream.writeVInt(1); // array
     stream.writeVInt(30);
 
-    stream.writeByte(player.selectedBrawlers.length);
-    for (const brawler of player.selectedBrawlers) {
+    stream.writeByte(config.selectedBrawlers.length);
+    for (const brawler of config.selectedBrawlers) {
       stream.writeDataReference(16, brawler);
     }
     stream.writeString(config.region);
@@ -146,13 +147,13 @@ export class OwnHomeDataMessage {
     // vanity items
     stream.writeBoolean(true);
     stream.writeVInt(
-      player.ownedThumbnails.length + player.ownedPins.length + 1,
+      config.ownedThumbnails.length + config.ownedPins.length + 1,
     );
-    player.ownedThumbnails.forEach((x) => {
+    config.ownedThumbnails.forEach((x) => {
       stream.writeDataReference(28, x);
       stream.writeVInt(0);
     });
-    player.ownedPins.forEach((x) => {
+    config.ownedPins.forEach((x) => {
       stream.writeDataReference(52, x);
       stream.writeVInt(0);
     });
@@ -462,15 +463,15 @@ export class OwnHomeDataMessage {
     // end LogicClientHome
     // LogicClientAvatar
 
-    stream.writeVLong(player.id[0], player.id[1]);
-    stream.writeVLong(player.id[0], player.id[1]);
+    stream.writeVLong(config.id.high, config.id.low);
+    stream.writeVLong(config.id.high, config.id.low);
     stream.writeVLong(0, 0);
     stream.writeString(config.name);
     stream.writeBoolean(config.registered);
     stream.writeInt(-1);
 
     let count = 30;
-    const unlockedBrawler = Object.values(player.ownedBrawlers).map(
+    const unlockedBrawler = Object.values(config.ownedBrawlers).map(
       (i) => i.cardID,
     );
 
@@ -484,17 +485,17 @@ export class OwnHomeDataMessage {
     }
     stream.writeDataReference(5, 8);
     stream.writeVInt(-1);
-    stream.writeVInt(player.coins);
+    stream.writeVInt(config.coins);
     stream.writeDataReference(5, 21);
     stream.writeVInt(-1);
     stream.writeVInt(0); // todo star road
     stream.writeDataReference(5, 23);
     stream.writeVInt(-1);
-    stream.writeVInt(player.bling);
+    stream.writeVInt(config.bling);
 
-    stream.writeVInt(Object.keys(player.ownedBrawlers).length);
+    stream.writeVInt(Object.keys(config.ownedBrawlers).length);
     for (const [brawlerID, brawlerData] of Object.entries(
-      player.ownedBrawlers,
+      config.ownedBrawlers,
     )) {
       stream.writeDataReference(16, Number(brawlerID));
       stream.writeVInt(-1);
@@ -503,27 +504,27 @@ export class OwnHomeDataMessage {
 
     stream.writeVInt(0);
 
-    stream.writeVInt(Object.keys(player.ownedBrawlers).length);
+    stream.writeVInt(Object.keys(config.ownedBrawlers).length);
     for (const [brawlerID, brawlerData] of Object.entries(
-      player.ownedBrawlers,
+      config.ownedBrawlers,
     )) {
       stream.writeDataReference(16, Number(brawlerID));
       stream.writeVInt(-1);
       stream.writeVInt(brawlerData.highestTrophies);
     }
 
-    stream.writeVInt(Object.keys(player.ownedBrawlers).length);
+    stream.writeVInt(Object.keys(config.ownedBrawlers).length);
     for (const [brawlerID, brawlerData] of Object.entries(
-      player.ownedBrawlers,
+      config.ownedBrawlers,
     )) {
       stream.writeDataReference(16, Number(brawlerID));
       stream.writeVInt(-1);
       stream.writeVInt(brawlerData.powerlevel - 1);
     }
 
-    stream.writeVInt(Object.keys(player.ownedBrawlers).length);
+    stream.writeVInt(Object.keys(config.ownedBrawlers).length);
     for (const [brawlerID, brawlerData] of Object.entries(
-      player.ownedBrawlers,
+      config.ownedBrawlers,
     )) {
       stream.writeDataReference(16, Number(brawlerID));
       stream.writeVInt(-1);
@@ -532,9 +533,9 @@ export class OwnHomeDataMessage {
 
     stream.writeVInt(0); // hero star power gadget and hyper
 
-    stream.writeVInt(Object.keys(player.ownedBrawlers).length);
+    stream.writeVInt(Object.keys(config.ownedBrawlers).length);
     for (const [brawlerID, brawlerData] of Object.entries(
-      player.ownedBrawlers,
+      config.ownedBrawlers,
     )) {
       stream.writeDataReference(16, Number(brawlerID));
       stream.writeVInt(-1);
@@ -545,9 +546,9 @@ export class OwnHomeDataMessage {
       stream.writeVInt(0);
     }
 
-    stream.writeVInt(Object.keys(player.ownedBrawlers).length);
+    stream.writeVInt(Object.keys(config.ownedBrawlers).length);
     for (const [brawlerID, brawlerData] of Object.entries(
-      player.ownedBrawlers,
+      config.ownedBrawlers,
     )) {
       stream.writeDataReference(16, Number(brawlerID));
       stream.writeVInt(-1);
@@ -558,9 +559,9 @@ export class OwnHomeDataMessage {
     stream.writeVInt(0);
 
     // winstreak for each brawler
-    stream.writeVInt(Object.keys(player.ownedBrawlers).length);
+    stream.writeVInt(Object.keys(config.ownedBrawlers).length);
     for (const [brawlerID, brawlerData] of Object.entries(
-      player.ownedBrawlers,
+      config.ownedBrawlers,
     )) {
       stream.writeDataReference(16, Number(brawlerID));
       stream.writeVInt(-1);

@@ -1,6 +1,5 @@
-import { config, player } from "../../definitions.js";
+import { config } from "../../definitions.js";
 import { ByteStream } from "../../bytestream.js";
-import { Player } from "../../player.js";
 
 export class SetSupportedCreatorResponseMessage {
   static encode(): number[] {
