@@ -17,7 +17,7 @@ export class PlayerDisplayData {
     stream.writeVInt(100);
     stream.writeVInt(28000000 + this.thumbnail);
     stream.writeVInt(43000000 + this.namecolor);
-    stream.writeVInt(43000000 + this.namecolor); // haspremiumpass == + player.namecolor
+    stream.writeVInt(43000000 + this.namecolor); // haspremiumpass == + config.namecolor
     if (version.gmv == 64) {
       stream.writeBoolean(false);
       stream.writeVInt(0);

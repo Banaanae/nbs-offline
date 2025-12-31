@@ -1,7 +1,6 @@
 import { Config, readConfig, tryLoadDefaultConfig } from "./config.js";
 import { getOffsetsFromJSON, Offsets } from "./offsets.js";
 import { isAndroid } from "./platform.js";
-import { Player } from "./player.js";
 import { getDocumentsDirectory, getPackageName } from "./util.js";
 import { Logger } from "./utility/logger.js";
 
@@ -22,7 +21,6 @@ export const mkdir = new NativeFunction(libc.getExportByName("mkdir"), "int", [
   "int",
 ]);
 
-export let player = new Player();
 export let documentsDirectory: string;
 export let configPath: string;
 export let config: Config;
@@ -74,7 +72,6 @@ export function load() {
   documentsDirectory = getDocumentsDirectory();
   configPath = documentsDirectory + "/config.json";
   config = readConfig();
-  player.applyConfig(config);
 
   version = getOffsetsFromJSON();
 

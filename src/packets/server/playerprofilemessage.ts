@@ -1,13 +1,14 @@
 import { ByteStream } from "../../bytestream.js";
-import { config, player } from "../../definitions.js";
+import { config } from "../../definitions.js";
 import { PlayerDisplayData } from "../../playerdisplaydata.js";
+import { calculateHighestTrophies, calculateTrophies } from "../../util.js";
 
 export class PlayerProfileMessage {
   static encode(): number[] {
     let stream = new ByteStream([]);
 
     // PlayerProfile::encode
-    stream.writeVLong(player.id[0], player.id[1]);
+    stream.writeVLong(config.id.high, config.id.low);
     stream.writeDataReference(16, config.favouriteBrawler);
     stream.writeDataReference(16, config.winstreakBrawler); // winstreak brawler
 
@@ -30,9 +31,9 @@ export class PlayerProfileMessage {
     stream.writeVInt(11);
     stream.writeVInt(config.duoWins);
     stream.writeVInt(29);
-    stream.writeVInt(player.trophies);
+    stream.writeVInt(calculateTrophies(config.ownedBrawlers));
     stream.writeVInt(4);
-    stream.writeVInt(player.highestTrophies);
+    stream.writeVInt(calculateHighestTrophies(config.ownedBrawlers));
     stream.writeVInt(24);
     stream.writeVInt(config.rankedHighest);
     stream.writeVInt(25);
@@ -59,8 +60,8 @@ export class PlayerProfileMessage {
     /* ***************************************** */
     let displaydata = new PlayerDisplayData(
       config.name,
-      player.thumbnail,
-      player.namecolor,
+      config.thumbnail,
+      config.namecolor,
     );
     stream = displaydata.encode(stream);
 

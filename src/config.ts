@@ -11,6 +11,7 @@ export class Config {
   name = "Natesworks";
   coins = 0;
   gems = 0;
+  bling = 0;
   starpoints = 0;
   experienceLevel = 0;
   experience = 0;
@@ -80,6 +81,9 @@ export class Config {
   customSettings = true;
   passTokens = 40000;
   plus = true;
+  ownedPins: number[] = [];
+  ownedSkins: number[] = [];
+  ownedThumbnails: number[] = [0];
 }
 export function tryLoadDefaultConfig() {
   try {
@@ -102,6 +106,7 @@ export function readConfig() {
   config.registered = json.registered;
   config.coins = json.coins;
   config.gems = json.gems;
+  config.bling = json.bling;
   config.starpoints = json.starpoints;
   config.experienceLevel = json.level;
   config.experience = json.experience;
@@ -203,6 +208,7 @@ export function writeConfig(config: Config) {
   data.name = config.name;
   data.coins = config.coins;
   data.gems = config.gems;
+  data.bling = config.bling;
   data.starpoints = config.starpoints;
   data.level = config.experienceLevel;
   data.experience = config.experience;
