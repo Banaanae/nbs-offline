@@ -26,6 +26,7 @@ import { Logger } from "./utility/logger"
 import { LoginOkMessage } from "./packets/server/loginokmessage"
 import { AskForBattleEndMessage } from "./packets/client/askforbattleendmessage"
 import { SetCountryMessage } from "./packets/client/setcountrymessage"
+import { UpdatePlayerMapMessage } from "./packets/client/mapmaker/UpdatePlayerMapMessage";
 
 
 export class Messaging {
@@ -115,6 +116,10 @@ export class Messaging {
       }
       case 12100: {
         CreatePlayerMapMessage.execute(CreatePlayerMapMessage.decode(stream));
+        break;
+      }
+      case 12103: {
+        UpdatePlayerMapMessage.execute(UpdatePlayerMapMessage.decode(stream));
         break;
       }
       case 12102: {
