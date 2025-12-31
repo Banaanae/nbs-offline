@@ -20,7 +20,7 @@ export class PlayerMap {
     stream.writeVLong(this.id[0], this.id[1]);
     stream.writeString(this.name);
     stream.writeVInt(this.gmv);
-    stream.writeDataReference({ high: 54, low: this.mapEnvironmentData });
+    stream.writeDataReference(54, this.mapEnvironmentData);
     if (this.data.length > 0) stream.writeBytes(this.data, this.data.length);
     else stream.writeInt(-1);
     stream.writeVLong(this.accountID[0], this.accountID[1]);
