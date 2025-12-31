@@ -148,6 +148,7 @@ export function readConfig() {
       brawler.state,
       brawler.masteryPoints,
       brawler.masteryClaimed,
+      brawler.winstreak || 0,
     );
   }
   config.events = json.events;
@@ -160,8 +161,15 @@ export function readConfig() {
   config.region = json.region || "PL";
   config.supportedCreator = json.supportedCreator || "Natesworks";
   config.allCreatorCodesValid = json.allCreatorCodesValid || false;
-  config.creatorCodes = json.creatorCodes || ["Natesworks", "kubune", "Hallo"];
-  config.randomBotNames = json.randomBotNames || false;
+  config.creatorCodes = json.creatorCodes || [
+    "Natesworks",
+    "kubune",
+    "Hallo",
+    "Kazarex",
+    "Ryo",
+    "Banaanae",
+  ];
+  config.randomBotNames = json.randomBotNames || true;
   config.draftMapLimit = json.draftMapLimit || 5;
   config.winstreak = json.winstreak || 0;
   config.winstreakBrawler = json.winstreakBrawler || 0;
@@ -241,6 +249,7 @@ export function writeConfig(config: Config) {
       state: brawler.state,
       masteryPoints: brawler.masteryPoints,
       masteryClaimed: brawler.masteryClaimed,
+      winstreak: brawler.winstreak,
     };
 
     data.events = config.events;

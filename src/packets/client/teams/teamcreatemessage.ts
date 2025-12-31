@@ -4,9 +4,9 @@ import { TeamManager } from "../../../teams/teammanager.js";
 export class TeamCreateMessage {
   static decode(stream: ByteStream): any {
     stream.readLong();
-    let type = stream.readVint();
-    let slot = stream.readVint();
-    stream.readVint();
+    let type = stream.readVInt();
+    let slot = stream.readVInt();
+    stream.readVInt();
     return { type: type, slot: slot };
   }
 

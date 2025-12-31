@@ -23,4 +23,5 @@ export interface Event {
   mapID: number;
   claimedTokens: number[];
   championShipInfo?: ChampionShipInfo;
+  gmv: number;
 }

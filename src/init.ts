@@ -15,19 +15,23 @@ import { setupCustomSettings } from "./customsettings.js";
 import { createStringObject } from "./util.js";
 
 (async () => {
-  if (isAndroid) await createAssetManager();
-  let library = isAndroid ? "libg.so" : "laser";
-  setBase(Module.getBaseAddress(library));
+  try {
+    if (isAndroid) await createAssetManager();
+    let library = isAndroid ? "libg.so" : "laser";
+    setBase(Module.getBaseAddress(library));
 
-  load();
-  Logger.info("Running on", isAndroid ? "Android" : "iOS");
-  Logger.verbose(`${library} loaded at: ${base}`);
-  for (const brawlerKey in config.ownedBrawlers) {
-    const brawler = config.ownedBrawlers[brawlerKey];
-    for (const skin of brawler.skins) {
-      config.ownedSkins.push(skin);
+    load();
+    Logger.info("Running on", isAndroid ? "Android" : "iOS");
+    Logger.verbose(`${library} loaded at: ${base}`);
+    for (const brawlerKey in config.ownedBrawlers) {
+      const brawler = config.ownedBrawlers[brawlerKey];
+      for (const skin of brawler.skins) {
+        config.ownedSkins.push(skin);
+      }
     }
+    installHooks();
+    if (version == 59 && config.customSettings) setupCustomSettings();
+  } catch (e) {
+    console.log(e);
   }
-  installHooks();
-  if (version == 59 && config.customSettings) setupCustomSettings();
 })();

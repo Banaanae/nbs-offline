@@ -6,9 +6,9 @@ import { Logger } from "../../utility/logger.js";
 export class EndClientTurnMessage {
   static decode(stream: ByteStream) {
     stream.readBoolean();
-    let tick = stream.readVint();
-    let checksum = stream.readVint();
-    let count = stream.readVint();
+    let tick = stream.readVInt();
+    let checksum = stream.readVInt();
+    let count = stream.readVInt();
     Logger.verbose("Command amount:", count);
     return { stream, tick, checksum, count };
   }
@@ -22,7 +22,7 @@ export class EndClientTurnMessage {
   }) {
     let { stream, count } = data;
     for (let i = 0; i < count; i++) {
-      let id = stream.readVint();
+      let id = stream.readVInt();
       Logger.verbose("Command ID:", id);
       stream = CommandHandler.handleCommand(id, stream);
     }

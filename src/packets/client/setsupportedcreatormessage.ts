@@ -2,8 +2,8 @@ import { ByteStream } from "../../bytestream.js";
 import { Messaging } from "../../messaging.js";
 import { config } from "../../definitions.js";
 import { writeConfig } from "../../config.js";
-import { SetSupportedCreatorResponseMessage } from "../server/SetSupportedCreatorResponseMessage.js";
-import { LogicSetSupportedCreatorCommand } from "../../commands/server/LogicSetSupportedCreatorCommand.js";
+import { SetSupportedCreatorResponseMessage } from "../server/setsupportedcreatorresponsemessage.js";
+import { LogicSetSupportedCreatorCommand } from "../../commands/server/logicsetsupportedcreatorcommand.js";
 import { Logger } from "../../utility/logger.js";
 
 export class SetSupportedCreatorMessage {
@@ -18,18 +18,30 @@ export class SetSupportedCreatorMessage {
     } else {
       Logger.debug("New CCC:", ccc);
     }
+
+    let creatorCodes = config.creatorCodes.map((v) => v.toLowerCase());
+    let cccLower = ccc.toLowerCase();
+
     if (
       ccc != "" &&
       !config.allCreatorCodesValid &&
-      !config.creatorCodes.includes(ccc)
+      !creatorCodes.includes(cccLower)
     ) {
       return Messaging.sendOfflineMessage(
         28686,
         SetSupportedCreatorResponseMessage.encode(),
       );
     }
-    config.supportedCreator = ccc;
+
+    if (ccc != "") {
+      let correctCaseIndex = creatorCodes.indexOf(cccLower);
+      config.supportedCreator = config.creatorCodes[correctCaseIndex];
+    } else {
+      config.supportedCreator = "";
+    }
+
     writeConfig(config);
+
     Messaging.sendOfflineMessage(
       24111,
       LogicSetSupportedCreatorCommand.encode(),

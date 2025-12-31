@@ -1,4 +1,4 @@
-import { Offsets } from "./offsets.js";
+import { Offsets } from "./offsets";
 import {
   base,
   config,
@@ -6,27 +6,27 @@ import {
   messageManagerReceiveMessage,
   operator_new,
   version,
-} from "./definitions.js";
-import { PiranhaMessage } from "./piranhamessage.js";
-import { getMessageManagerInstance } from "./util.js";
-import { TeamManager } from "./teams/teammanager.js";
-import { OwnHomeDataMessage } from "./packets/server/OwnHomeDataMessage.js";
-import { writeConfig } from "./config.js";
-import { PlayerProfileMessage } from "./packets/server/PlayerProfileMessage.js";
-import { AvatarNameCheckRequestMessage } from "./packets/client/namechange/AvatarNameCheckRequestMessage.js";
-import { ByteStream } from "./bytestream.js";
-import { ChangeAvatarNameMessage } from "./packets/client/namechange/ChangeAvatarNameMessage.js";
-import { EndClientTurnMessage } from "./packets/client/EndClientTurnMessage.js";
-import { SetSupportedCreatorMessage } from "./packets/client/SetSupportedCreatorMessage.js";
-import { CreatePlayerMapMessage } from "./packets/client/mapmaker/CreatePlayerMapMessage.js";
-import { PlayerMapsMessage } from "./packets/server/mapmaker/PlayerMapsMessage.js";
-import { DeletePlayerMapMessage } from "./packets/client/mapmaker/DeletePlayerMapMessage.js";
-import { TeamCreateMessage } from "./packets/client/teams/TeamCreateMessage.js";
-import { TeamGameStartingMessage } from "./packets/server/TeamGameStartingMessage.js";
-import { Logger } from "./utility/logger.js";
-import { LoginOkMessage } from "./packets/server/LoginOkMessage.js";
-import { AskForBattleEndMessage } from "./packets/client/AskForBattleEndMessage.js";
-import { SetCountryMessage } from "./packets/client/SetCountryMessage.js"
+} from "./definitions";
+import { PiranhaMessage } from "./piranhamessage";
+import { getMessageManagerInstance } from "./util";
+import { TeamManager } from "./teams/teammanager";
+import { OwnHomeDataMessage } from 'OwnHomeDataMessage'
+import { writeConfig } from "./config";
+import { PlayerProfileMessage } from "./packets/server/playerprofilemessage";
+import { AvatarNameCheckRequestMessage } from "./packets/client/namechange/avatarnamecheckmessage";
+import { ByteStream } from "./bytestream";
+import { ChangeAvatarNameMessage } from "./packets/client/namechange/changeavatarnamemessage";
+import { EndClientTurnMessage } from "./packets/client/endclientturnmessage"
+import { SetSupportedCreatorMessage } from "./packets/client/setsupportedcreatormessage"
+import { CreatePlayerMapMessage } from "./packets/client/mapmaker/createplayermapmessage"
+import { PlayerMapsMessage } from "./packets/server/mapmaker/playermapsmessage"
+import { DeletePlayerMapMessage } from "./packets/client/mapmaker/deleteplayermapmessage"
+import { TeamCreateMessage } from "./packets/client/teams/teamcreatemessage"
+import { Logger } from "./utility/logger"
+import { LoginOkMessage } from "./packets/server/loginokmessage"
+import { AskForBattleEndMessage } from "./packets/client/askforbattleendmessage"
+import { SetCountryMessage } from "./packets/client/setcountrymessage"
+
 
 export class Messaging {
   static sendOfflineMessage(id: number, payload: number[]): NativePointer {
@@ -131,10 +131,6 @@ export class Messaging {
       }
       case 14350: {
         TeamCreateMessage.execute(TeamCreateMessage.decode(stream));
-        break;
-      }
-      case 14355: {
-        Messaging.sendOfflineMessage(24130, TeamGameStartingMessage.encode());
         break;
       }
     }

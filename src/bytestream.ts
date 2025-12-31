@@ -81,7 +81,7 @@ export class ByteStream {
     if (classID != 0) this.writeVInt(instanceID);
   }
 
-  readVint(): number {
+  readVInt(): number {
     let start = this.offset;
     this.bitoffset = 0;
     let b0 = this.payload[start];
@@ -132,15 +132,15 @@ export class ByteStream {
     return result;
   }
 
-  readVlong(): number {
-    let high = this.readVint();
-    let low = this.readVint();
+  readVLong(): number {
+    let high = this.readVInt();
+    let low = this.readVInt();
     return Number((BigInt(high) << 32n) | BigInt(low >>> 0));
   }
 
-  readVlongAsLong(): Long {
-    let high = this.readVint();
-    let low = this.readVint();
+  readVLongAsLong(): Long {
+    let high = this.readVInt();
+    let low = this.readVInt();
     return new Long(high, low);
   }
 
@@ -150,11 +150,11 @@ export class ByteStream {
   }
 
   readDataReference(): Long {
-    const high = this.readVint();
+    const high = this.readVInt();
     if (high === 0) {
       return { high: 0, low: 0 };
     }
-    const low = this.readVint();
+    const low = this.readVInt();
     return { high, low };
   }
 

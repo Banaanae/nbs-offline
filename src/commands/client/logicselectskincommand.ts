@@ -9,7 +9,7 @@ export class LogicSelectSkinCommand {
     stream = LogicCommand.decode(stream);
     let skin = stream.readDataReference().low;
     console.log("New skin id:", skin);
-    let unk1 = stream.readVint();
+    let unk1 = stream.readVInt();
     return { stream, skin };
   }
 

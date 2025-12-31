@@ -1,14 +1,17 @@
 {
-  "id": [0, 1],
-  "tutorial": true,
+  "id": [
+    0,
+    1
+  ],
+  "tutorial": false,
   "registered": false,
   "name": "Natesworks",
   "supportedCreator": "Natesworks",
   "coins": 0,
-  "gems": 0,
+  "gems": 1000,
   "bling": 0,
   "starpoints": 0,
-  "level": 0,
+  "level": 1,
   "experience": 0,
   "namecolor": 0,
   "thumbnail": 0,
