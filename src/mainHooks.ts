@@ -224,13 +224,4 @@ export function installHooks() {
       },
     });
   }
-
-  if (version.gmv == 64 && config.customSettings)
-    Interceptor.attach(base.add(Offsets.SetText), {
-      onEnter(args) {
-        if (decodeString(args[1]) == "Null's Connect") {
-          stringCtor(args[1], Memory.allocUtf8String(""));
-        }
-      },
-    });
 }

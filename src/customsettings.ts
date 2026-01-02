@@ -8,10 +8,12 @@ import {
   getX,
   getY,
   setXY,
+  stringCtor,
 } from "./definitions";
 import { Offsets } from "./offsets";
 import { Logger } from "./utility/logger";
 import { ButtonHelper } from "./utility/buttonhelper";
+import { decodeString } from "./util";
 
 let editControlsPos: any;
 let editConfigPos: any;
@@ -21,6 +23,13 @@ export function setupCustomSettings() {
   Interceptor.attach(base.add(Offsets.SettingsScreenConstructor), {
     onEnter(args) {
       guiContainer = args[0];
+      this.setTextHook = Interceptor.attach(base.add(Offsets.SetText), {
+        onEnter(args) {
+          if (decodeString(args[1]) == "Null's Connect") {
+            stringCtor(args[1], Memory.allocUtf8String(""));
+          }
+        },
+      });
       this.addGameBtnHook = Interceptor.attach(
         base.add(Offsets.AddGameButton),
         {
@@ -45,6 +54,7 @@ export function setupCustomSettings() {
     },
     onLeave() {
       this.addGameBtnHook.detach();
+      this.setTextHook.detach();
       // soon
     },
   });
